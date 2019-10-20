@@ -1,0 +1,37 @@
+[
+    {
+        "FAIReport": [
+            {
+                "controls": [
+                    {
+                        "id": "add",
+                        "field": "",
+                        "display":"none"
+                       
+                    },
+                    {
+                        "id": "parameter",
+                        "field": "Parameter"
+                       
+                    },
+                    {
+                        "id": "machineNo",
+                        "field": "Machine #"
+                       
+                    },
+                    {
+                        "id": "empNo",
+                        "field": "Emp #"
+                       
+                    },
+                    {
+                        "id": "Status",
+                        "field": "Pass/Fail"
+                       
+                    }
+                ]
+                
+            }
+        ]
+    }
+]

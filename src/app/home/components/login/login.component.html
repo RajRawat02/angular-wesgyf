@@ -1,0 +1,82 @@
+<!-- center aligned div block -->
+<div
+  style="min-width:900px; width: 900px !important; position: relative; margin-left:50%; margin-top:50%; transform: translate(-50%, -50%)">
+
+  <!-- centerally aligned application logo -->
+  <p id="titleHeader" class="text-center m-2 mt-3">
+    <img src="assets/images/logo.png">
+  </p>
+
+  <!-- login form  -->
+  <form [formGroup]="userLoginForm" class="w-100">
+    <div class="row w-100" [nbSpinner]="spinnerService.isLoading" nbSpinnerSize="giant" nbSpinnerStatus="info">
+
+      <!-- login image  -->
+      <div class="col-6">
+        <img src="assets/images/LittelFuseLogin.png"
+          style="border-right: 1px solid #edf1f7; width:450px !important;height:350px !important;">
+      </div>
+
+      <div class="col-6 mt-2 pt-2">
+
+        <!-- username label and input element -->
+        <div class="row mx-0 px-0">
+          <div class="col-5">
+            <label class="label" style="font-size: 1rem;margin-top: 8px"><i class="fa fa-user"></i> Username:</label>
+          </div>
+          <div class="col-7 mx-0 px-0">
+            <input formControlName="EmployeeID" #username nbInput class="text w-100" name="username" type="text"
+              ng-disabled="disabled" />
+          </div>
+        </div>
+        <br>
+
+        <!-- passowrd label and input element -->
+        <div class="row mx-0 px-0">
+          <div class="col-5">
+            <label class="label" style="font-size: 1rem;margin-top: 8px"><i class="fa fa-lock"></i> Password:</label>
+          </div>
+          <div class="col-7 mx-0 px-0">
+            <input nbInput formControlName="Password" #password class="password w-100" name="password" type="password"
+              ng-disabled="disabled" />
+          </div>
+        </div>
+        <br>
+
+        <!-- Language label and language dropdown to select language -->
+        <div class="row mx-0 px-0">
+          <div class="col-5">
+            <label class="label" style="font-size: 1rem;margin-top: 8px"><i class="fa fa-language"></i>
+              Language:</label>
+          </div>
+          <div class="col-7 mx-0 px-0">
+            <p-dropdown [styleClass]="'w-100'" [panelStyleClass]="'w-100'" (onChange)="onLanguageSelect()"
+              [options]="languages" [(ngModel)]="selectedLanguage" optionLabel="label"
+              [ngModelOptions]="{standalone: true}"></p-dropdown>
+          </div>
+        </div>
+        <br> <br>
+
+        <!-- login button -->
+        <div class="text-center">
+          <div class="row mx-0 px-0">
+            <div class="col mr-0 pr-0">
+              <button type="submit" (click)="login()" [disabled]="!userLoginForm.valid"
+                class="w-100 btn btn-success">Login</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- reset password button -->
+        <div class="text-center">
+          <div class="row mx-0 px-0">
+            <div class="col mr-0 pr-0">
+              <button type="submit" class="w-100 btn btn-success">Reset/Forget
+                Password</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

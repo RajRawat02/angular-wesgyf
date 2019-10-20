@@ -1,0 +1,32 @@
+input + .warning {
+  background: #ffff99;
+  display: inline-block;
+}
+.info-icon {
+  margin-left: 20% !important;
+  margin-top: 20% !important;
+  font-size: x-large !important;
+  color: red !important;
+}
+
+//for calenar control
+:host ::ng-deep .ui-inputtext {
+  width: 100% !important;
+}
+:host ::ng-deep .ui-dropdown {
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+.error-message {
+  color: red;
+}
+
+.error-highlight{
+//  outline: none !important;
+border-color: #FF0000!important;
+border-width: 1px!important;
+border-style: solid!important;
+ //border:2px solid #FF0000!important;
+ //box-shadow: 0 0 10px red;
+} 

@@ -1,0 +1,26 @@
+[
+    {
+        "ESRLotnumbers": [
+            {
+                "columns": 
+                [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "esrid",
+                        "header": "ESR ID",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "lotNumber",
+                        "header": "Lot Number",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,186 @@
+<div class="container-fluid px-0" *ngIf="header && header.columns && _source">
+
+  <!-- primeng smart hierarchical table with add, edit, delete row functionalities, lazy loading and pagination, when expanding row, either picklist or child table will be shown as per the template selected  -->
+  <p-table #dt class="shadow-lg mt-3" [columns]="headerColumns" rowExpandMode="single" expandableRows="true"
+    [value]="_source" dataKey="id" editMode="row" [paginator]="true" [rows]="rows"
+    [rowsPerPageOptions]="[10,15,20,25,30]" [lazy]="lazy" [totalRecords]="totalRecords" (onLazyLoad)="loadLazy($event)"
+    [(first)]="first">
+
+    <!-- parent table header template starts -->
+    <ng-template pTemplate="header" let-columns>
+      <!-- header row to display column headers -->
+      <tr class="lf-background">
+        <th style="width:6em">
+          Actions
+        </th>
+        <th style="width:2em"></th>
+        <th *ngFor="let col of columns" [ngStyle]="{'display': col.display}">
+          {{col.header}}
+        </th>
+      </tr>
+      <!-- header row to show add new row option and input elements for filtering -->
+      <tr>
+        <!-- column to show add new row action and search icon if lazy loading is enabled -->
+        <th style="text-align: center">
+          <button [disabled]="disableAdd || (adding || childAdding)" pButton type="button" icon="pi pi-plus"
+            class="ui-button-success" style="margin-right: .5em" (click)="onRowAddInit()" title="Add"></button>
+          <button *ngIf="lazy" pButton type="button" icon="pi pi-search" class="ui-button-secondary"
+            (click)="onSearch()" title="Search"></button>
+        </th>
+        <th></th>
+        <!-- column to show input elements to filter data for lazy and normal loading -->
+        <th *ngFor="let col of columns" [ngStyle]="{'display': col.display}">
+          <input *ngIf="!lazy" pInputText style="width: 100%" type="text" placeholder="{{col.header}}"
+            (input)="dt.filter($event.target.value, col.field, 'contains')">
+          <input *ngIf="lazy" pInputText style="width: 100%" type="text" placeholder="{{col.header}}"
+            [(ngModel)]="searchRowData[col.field]" (keyup)="triggerSearch($event)">
+        </th>
+      </tr>
+      <!-- header row to show input elements for adding a new row with Save and Cancel actions -->
+      <tr *ngIf="adding">
+        <th style="text-align: center">
+          <button pButton type="button" icon="pi pi-check" class="ui-button-secondary" style="margin-right: .5em"
+            (click)="onRowAddSave($event)" title="Save"></button>
+          <button pButton type="button" icon="pi pi-times" class="ui-button-secondary" (click)="onRowAddCancel($event)"
+            title="Cancel"></button>
+        </th>
+        <th></th>
+        <th *ngFor="let col of columns" [ngStyle]="{'display': col.display}">
+          <app-cell-editor [action]="'add'" [col]="col" [rowData]="newRowData"></app-cell-editor>
+        </th>
+      </tr>
+    </ng-template>
+    <!-- parent table header template ends -->
+
+    <!-- parent table body template starts -->
+    <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-editing="editing" let-ri="rowIndex"
+      let-columns="columns">
+      <!-- hihglighting curent row if in edit mode or expnded -->
+      <tr [pEditableRow]="rowData" [ngClass]="(editing || expanded) ? 'ui-state-highlight' : ''">
+        <!-- first column to show actions like edit and delete, if in edit mode - save and cancel will be visible -->
+        <td style="text-align:center">
+          <button *ngIf="!editing" [disabled]="disableEdit || rowData['isReserved']" pButton type="button"
+            pInitEditableRow icon="pi pi-pencil" class="ui-button-secondary" style="margin-right: .5em"
+            (click)="onRowEditInit(rowData)" title="Edit"></button>
+          <button *ngIf="editing" pButton type="button" pSaveEditableRow icon="pi pi-check" class="ui-button-secondary"
+            style="margin-right: .5em" (click)="onRowEditSave(rowData)" title="Save"></button>
+          <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times"
+            class="ui-button-secondary" (click)="onRowEditCancel(rowData, ri)" title="Cancel"></button>
+          <button *ngIf="!editing" [disabled]="disableDelete || rowData['isReserved']" pButton type="button"
+            icon="pi pi-trash" class="ui-button-secondary" (click)="onRowDeleteInit(rowData)" title="Delete"></button>
+        </td>
+        <!-- second column to show arrow to expand the row -->
+        <td>
+          <a href="#" [pRowToggler]="rowData" (click)="onRowExpand(rowData)">
+            <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'" style="color: grey"></i>
+          </a>
+        </td>
+        <!-- looping through all columns to display column data using cell-edior component -->
+        <td *ngFor="let col of columns" [ngStyle]="{'display': col.display}">
+          <app-cell-editor [action]="'edit'" [col]="col" [rowData]="rowData"></app-cell-editor>
+        </td>
+      </tr>
+    </ng-template>
+    <!-- parent table body template ends -->
+
+    <!-- parent table row expansion template starts - includes picklist and child table  -->
+    <ng-template pTemplate="rowexpansion" let-ri="rowIndex" let-rowData let-columns="columns">
+      <tr>
+        <td [colSpan]="colSpanCount" class="ml-5">
+
+          <!-- picklist starts -->
+          <!-- save button to save selected mappings -->
+          <button *ngIf="header.expandedTemplate == 'picklist'" style="margin-left:1%" type="button" pButton
+            (click)="saveMappings()" label="Save" title="Save" class="ui-button-success"></button>
+          <p-pickList *ngIf="header.expandedTemplate == 'picklist'" [source]="filteredAvailableList"
+            [target]="selectedList" filterBy="{{header.expandedItemNameField}}" sourceFilterPlaceholder="Search.."
+            targetFilterPlaceholder="Search.." [showSourceControls]="false"
+            [style]="{'height':'320px','margin-bottom' :'30px'}" [sourceStyle]="{'height':'270px'}"
+            [targetStyle]="{'height':'270px'}" sourceHeader="Available" targetHeader="Selected" [responsive]="true"
+            (onMoveToTarget)="onMoveToTarget($event)" (onMoveToSource)="onMoveToSource($event)"
+            (onTargetReorder)="onTargetReorder($event)">
+            <ng-template let-item pTemplate="item">
+              <div class="ui-helper-clearfix">
+                <div>
+                  {{item[header.expandedItemNameField]}}
+                </div>
+              </div>
+            </ng-template>
+          </p-pickList>
+          <!-- picklist ends -->
+
+          <!-- child table  starts -->
+          <p-table #dt1 *ngIf="header.expandedTemplate == 'table'" class="ml-2" [ngStyle]="{'width': '100%'}"
+            [paginator]="true" [rows]="3" [columns]="header.expandedColumns" [value]="childSource" dataKey="id"
+            editMode="row">
+
+            <!-- child table header template starts -->
+            <ng-template pTemplate="header" let-childColumns>
+              <!-- header row to display column headers -->
+      <tr class="lf-background">
+        <th style="width:6em">
+          Actions
+        </th>
+        <th *ngFor="let col of childColumns" [ngStyle]="{'display': col.display}">
+          {{col.header}}
+        </th>
+      </tr>
+      <!-- header row to show add new row option and input elements for filtering -->
+      <tr>
+        <th style="text-align: center">
+          <button [disabled]="childAdding || adding" pButton type="button" icon="pi pi-plus" class="ui-button-success"
+            style="margin-right: .5em" (click)="onChildRowAddInit()" title="Add"></button>
+        </th>
+        <th *ngFor="let col of childColumns" [ngStyle]="{'display': col.display}">
+          <input pInputText style="width: 100%" type="text" placeholder="{{col.header}}"
+            (input)="dt1.filter($event.target.value, col.field, 'contains')">
+        </th>
+      </tr>
+      <!-- header row to show input elements for adding a new row with Save and Cancel actions -->
+      <tr *ngIf="childAdding">
+        <th style="text-align: center">
+          <button pButton type="button" icon="pi pi-check" class="ui-button-secondary" style="margin-right: .5em"
+            (click)="onChildRowAddSave($event)" title="Save"></button>
+          <button pButton type="button" icon="pi pi-times" class="ui-button-secondary"
+            (click)="onChildRowAddCancel($event)" title="Cancel"></button>
+        </th>
+        <th *ngFor="let col of childColumns" [ngStyle]="{'display': col.display}">
+          <app-cell-editor [action]="'add'" [col]="col" [rowData]="newRowData"></app-cell-editor>
+        </th>
+      </tr>
+    </ng-template>
+    <!-- child table header template ends -->
+
+    <!-- child table body template starts -->
+    <ng-template pTemplate="body" let-childRowData let-childEditing="editing" let-cri="rowIndex"
+      let-childColumns="columns">
+      <tr [pEditableRow]="childRowData" [ngClass]="childEditing ? 'ui-state-highlight' : ''">
+        <!-- first column to show actions like edit and delete, if in edit mode - save and cancel will be visible -->
+        <td style="text-align:center">
+          <button *ngIf="!childEditing" pButton pInitEditableRow type="button" icon="pi pi-pencil" title="Edit"
+            class="ui-button-secondary" style="margin-right: .5em" (click)="onChildRowEditInit(childRowData)"></button>
+          <button *ngIf="childEditing" pButton pSaveEditableRow type="button" icon="pi pi-check" title="Save"
+            class="ui-button-secondary" style="margin-right: .5em" (click)="onChildRowEditSave(childRowData)"></button>
+          <button *ngIf="childEditing" pButton pCancelEditableRow type="button" icon="pi pi-times" title="Cancel"
+            class="ui-button-secondary" (click)="onChildRowEditCancel(childRowData, cri)"></button>
+          <button *ngIf="!childEditing" pButton type="button" icon="pi pi-trash" class="ui-button-secondary"
+            (click)="onChildRowDeleteInit(childRowData)" title="Delete"></button>
+        </td>
+        <!-- looping through all columns to display column data using cell-edior -->
+        <td *ngFor="let col of childColumns" [ngStyle]="{'display': col.display}">
+          <app-cell-editor [action]="'edit'" [col]="col" [rowData]="childRowData"></app-cell-editor>
+        </td>
+      </tr>
+    </ng-template>
+    <!-- child table body template ends -->
+
+  </p-table>
+  <!-- child table  ends -->
+
+  </td>
+  </tr>
+  </ng-template>
+  <!-- parent table row expansion template ends -->
+
+  </p-table>
+</div>

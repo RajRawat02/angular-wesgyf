@@ -1,0 +1,72 @@
+{
+    "demo.title": "Littelfuse MES System",
+    "holdlot": {
+        "lotInfoTitle": "Lot Information",
+        "scanInputLot": "Scan/Input Lot Production #",
+        "emptyMessage": "No Production Lot records found with entered data.",
+        "productionLot": "Production Lot #",
+        "product": "Product",
+        "currentStep": "Current Step",
+        "equipment": "Equipment",
+        "holdTitle": "Hold",
+        "holdCode": "Hold Code",
+        "description": "Description",
+        "comments": "Comments",
+        "department": "Department",
+        "status": "Status",
+        "ocapCode" : "Ocap ID" ,
+        "message": {
+            "holdLot": "Hold lot saved successfully."
+        }
+    },
+
+    "lotinfo": {
+        "history": "History",
+        "holdInfo": "Hold/Release Information",
+        "changeHoldCode": "Change Hold Code",
+        "releaseLot": "Release Lot",
+        "qaReview": "QA Review",
+        "export": "Export To Excel",
+        "message": {
+            "rework": "Rework Route saved successfully.",
+            "holdCode" : "Hold Code updated successfully.",
+            "qaReview" : "QA Review details saved successfully.",
+            "releaseCode": "Release Code updated successfully."
+        },
+        "releaseCode": "Release Code",
+        "dispositionSolution" : "Disposition Solution",
+        "rootCause": "Root Cause",
+        "newHoldCode": "New Hold Code",
+        "result": "Result"
+    },
+    "print": "Print",
+    "cancel": "Cancel",
+    "submit": "Submit",
+
+    "ColHdr Lot #": "Lot #",
+    "ColHdr Product": "Product",
+    "ColHdr Route": "Route",
+    "ColHdr Hold Code": "Hold Code",
+    "ColHdr Hold Time": "Hold Time",
+    "ColHdr Department": "Department",
+    "ColHdr Description": "Description",
+    "ColHdr Status": "Status",
+
+    "ColHdr Production Lot #": "Production Lot #",
+    "ColHdr Pre Hold Code": "Pre Hold Code",	
+    "ColHdr New Hold Code": "New Hold Code",
+    "ColHdr Pre Hold To Dept": "Pre Hold To Dept",
+    "ColHdr New Hold To Dept": "New Hold To Dept",
+    "ColHdr Change Comments": "Change Comments",
+    "ColHdr Modified By": "Modified By",
+    "ColHdr Modified Time": "Modified Time",
+
+    "ColHdr Release Code": "Release Code",
+    "ColHdr Root Cause" : "Root Cause",
+    "ColHdr Dispose Analysis":	"Dispose Analysis",
+    "ColHdr Dispose Comments": "Dispose Comments",	
+    "ColHdr QA BuyOff Result": "QA BuyOff Result",	
+    "ColHdr BuyOff By": "BuyOff By",
+    "ColHdr BuyOff Comments": "BuyOff Comments",
+    "ColHdr BuyOff Time": "BuyOff Time"
+}

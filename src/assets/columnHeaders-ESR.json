@@ -1,0 +1,59 @@
+[
+    {
+        "ESRList": [
+            {
+                "columns": 
+                [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "requestor",
+                        "header": "Requestor",
+                        "display": "table-cell"
+                    },
+                    
+                    {
+                        "field": "department",
+                        "header": "Department",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "partNum",
+                        "header": "Part Number",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "orderType",
+                        "header": "Order Type",
+                        "display": "table-cell"
+                    },
+
+                    {
+                        "field": "priority",
+                        "header": "Priority",
+                        "display": "table-cell"
+                    },
+ 
+                    {
+                        "field": "lotCount",
+                        "header": "Lot Count",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "expectedDate",
+                        "header": "Expected Date",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "status",
+                        "header": "Status",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ]
+    }
+]

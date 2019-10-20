@@ -1,0 +1,73 @@
+[
+    {
+        "BOMCheck": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "bOMDescription",
+                        "header": "Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "storageLoc",
+                        "header": "StorageLoc",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ],
+        "lotadjust": [
+            {
+            "columns": [
+                {
+                    "field": "productionLotNumber",
+                    "header": "Lot #",
+                    "display": "table-cell"
+                },
+                {
+                    "field": "product",
+                    "header": "Product",
+                    "display": "table-cell"
+                },
+                {
+                    "field": "priority",
+                    "header": "Priority",
+                    "display": "table-cell"
+                }
+
+            ]
+        }
+        ],
+        "BOMInfo": [
+            {
+                "columns": [
+                    {
+                        "field": "actualBOMProduct",
+                        "header": "BOM",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "bomDescription",
+                        "header": "Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "actualBOMBatch",
+                        "header": "Batch",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "storageLoc",
+                        "header": "StorageLoc",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ]
+    }
+]

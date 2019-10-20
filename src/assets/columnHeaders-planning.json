@@ -1,0 +1,434 @@
+[
+    {
+        "workorder": [
+            {
+                "columns": [
+                    {
+                        "field": "workOrderNumber",
+                        "header": "WorkOrder #",
+                        "display": "table-cell",
+                        "width":"130px",
+                        "editable":false
+                    },
+                    {
+                        "field": "product",
+                        "header": "Product",
+                        "display": "table-cell",
+                        "width":"140px"
+                    },
+                    {
+                        "field": "description",
+                        "header": "Description",
+                        "display": "table-cell",
+                        "align":"left",
+                        "width":"350px"
+                    },
+                    {
+                        "field": "mrp",
+                        "header": "MRP",
+                        "display": "table-cell",
+                        "width":"70px"
+                    },
+                    {
+                        "field": "prodVersion",
+                        "header": "ProdVersion",
+                        "display": "table-cell",
+                        "width":"120px"
+                    },
+                    {
+                        "field": "status",
+                        "header": "Status",
+                        "display": "table-cell",
+                        "width":"80px"
+                    },
+                    {
+                        "field": "quantity",
+                        "header": "Quantity",
+                        "display": "table-cell",
+                        "subtype": "number",
+                        "width":"100px",
+                        "editable":true
+                    },
+                    {
+                        "field": "productionLotQuantity",
+                        "header": "Lot Quantity",
+                        "display": "table-cell",
+                        "subtype": "number",
+                        "width":"130px"
+                    },
+                    {
+                        "field": "basicStartDate",
+                        "header": "Start Date",
+                        "display": "table-cell",
+                        "type":"date",
+                        "format":"yyyy/MM/dd",
+                        "width":"120px",
+                        "editable":true,
+                        "required":true
+                    },
+                    {
+                        "field": "basicFinishDate",
+                        "header": "Finish Date",
+                        "display": "table-cell",
+                        "type":"date",
+                        "width":"120px",
+                        "editable":true
+                    },
+                    {
+                        "field": "orderType",
+                        "header": "Order Type",
+                        "display": "table-cell",
+                        "width":"120px"
+                    },
+                    {
+                        "field": "batchNumber",
+                        "header": "Batch Number",
+                        "display": "table-cell",
+                        "width":"140px"
+                    },
+                    {
+                        "field": "baseUnit",
+                        "header": "Unit",
+                        "display": "table-cell",
+                        "width":"70px"
+                    },
+                    {
+                        "field": "createdTime",
+                        "header": "Created Time",
+                        "display": "table-cell",
+                        "type":"date",
+                        "width":"130px"
+                    }
+                ],
+                "frozenWidth":"200px"
+            }
+        ],
+        "productionlot": [
+            {
+                "columns": [
+                    {
+                        "field": "productionLotNumber",
+                        "header": "ProductionLot#",
+                        "display": "table-cell",
+                        "width":"150px"
+                    },
+                    {
+                        "field": "workOrderNumber",
+                        "header": "WorkOrder#",
+                        "display": "table-cell",
+                        "width":"120px"
+                    },
+                    {
+                        "field": "product",
+                        "header": "Product",
+                        "display": "table-cell",
+                        "width":"120px"
+                    },
+                    {
+                        "field": "description",
+                        "header": "Description",
+                        "display": "table-cell",
+                        "align":"left",
+                        "width":"320px"
+                    },
+                    {
+                        "field": "mrp",
+                        "header": "MRP",
+                        "display": "table-cell",
+                        "width":"70px"
+                    },
+                    {
+                        "field": "prodVersion",
+                        "header": "ProdVersion",
+                        "display": "table-cell",
+                        "width":"120px"
+                    },
+                    {
+                        "field": "status",
+                        "header": "Status",
+                        "display": "table-cell",
+                        "width":"80px"
+                    },
+                    {
+                        "field": "quantity",
+                        "header": "Quantity",
+                        "display": "table-cell",
+                        "width":"100px",
+                        "subtype": "number",
+                        "editable":true,
+                        "required":true
+                    },
+                    {
+                        "field": "priority",
+                        "header": "Priority",
+                        "display": "table-cell",
+                        "width":"90px"
+                    },
+                    {
+                        "field": "releaseDate",
+                        "header": "Release Date",
+                        "display": "table-cell",
+                        "width":"130px",
+                        "type":"date"
+                    },
+                    {
+                        "field": "basicStartDate",
+                        "header": "Start Date",
+                        "display": "table-cell",
+                        "width":"120px",
+                        "type":"date",
+                        "editable":true,
+                        "required":true
+                    },
+                    {
+                        "field": "basicFinishDate",
+                        "header": "Finish Date",
+                        "display": "table-cell",
+                        "width":"120px",
+                        "type":"date",
+                        "editable":true,
+                        "required":true
+                    },
+                    {
+                        "field": "createdTime",
+                        "header": "Created Time",
+                        "display": "table-cell",
+                        "width":"130px",
+                        "type":"date"
+                    },
+                    {
+                        "field": "createdBy",
+                        "header": "CreatedBy",
+                        "display": "table-cell",
+                        "width":"120px"
+                    }
+                ]
+            }
+        ],
+        "productionlotDetail": [
+            {
+                "columns": [
+                    {
+                        "field": "productionLotNumber",
+                        "header": "ProductionLot #",
+                        "display": "table-cell",
+                        "width":"100px"
+                    },
+                    {
+                        "field": "status",
+                        "header": "Status",
+                        "display": "table-cell",
+                        "width":"60px"
+                    },
+                    {
+                        "field": "quantity",
+                        "header": "Quantity",
+                        "display": "table-cell",
+                        "width":"60px"
+                    },
+                    {
+                        "field": "priority",
+                        "header": "Priority",
+                        "display": "table-cell",
+                        "width":"60px"
+                    },
+                    {
+                        "field": "releaseDate",
+                        "header": "Release Date",
+                        "display": "table-cell",
+                        "type":"date",
+                        "width":"80px"
+                    },
+                    {
+                        "field": "basicStartDate",
+                        "header": "Start Date",
+                        "display": "table-cell",
+                        "type":"date",
+                        "width":"80px"
+                    },
+                    {
+                        "field": "basicFinishDate",
+                        "header": "Finish Date",
+                        "display": "table-cell",
+                        "type":"date",
+                        "width":"80px"
+                    },
+                    {
+                        "field": "createdTime",
+                        "header": "Created Time",
+                        "display": "table-cell",
+                        "type":"date",
+                        "width":"80px"
+                    },
+                    {
+                        "field": "createdBy",
+                        "header": "CreatedBy",
+                        "display": "table-cell",
+                        "width":"80px"
+                    }
+                ]
+            }
+        ],
+        "productionlotroute": [
+            {
+                "columns": [
+                    {
+                        "field": "operationNumber",
+                        "header": "Operation#",
+                        "display": "table-cell",
+                        "width":"120px"                  
+                    },
+                    {
+                        "field": "operationDescription",
+                        "header": "Description",
+                        "display": "table-cell",
+                        "width":"200px"
+                    },
+                    {
+                        "field": "workCenter",
+                        "header": "Work Center",
+                        "display": "table-cell",
+                        "width":"130px"
+                    },
+                    {
+                        "field": "ctrlKey",
+                        "header": "CtrlKey",
+                        "display": "table-cell",
+                        "width":"90px"
+                    },
+                    {
+                        "field": "status",
+                        "header": "Status",
+                        "display": "table-cell",
+                        "width":"90px"
+                    },
+                    {
+                        "field": "baseQty",
+                        "header": "Base Qty",
+                        "display": "table-cell",
+                        "width":"100px"
+                    },
+                    {
+                        "field": "recipe",
+                        "header": "Recipe",
+                        "display": "table-cell",
+                        "width":"100px"
+                    },
+                    {
+                        "field": "resourceType",
+                        "header": "Resource Type",
+                        "display": "table-cell",
+                        "width":"140px"
+                    },
+                    {
+                        "field": "isNeedSkip",
+                        "header": "NeedSkip",
+                        "display": "table-cell",
+                        "width":"120px"
+                    },
+                    {
+                        "field": "isFastTrackInOut",
+                        "header": "FastTrackInOut",
+                        "display": "table-cell",
+                        "width":"150px"
+                    },
+                    {
+                        "field": "lowYieldLimit",
+                        "header": "Low Yield Limit",
+                        "display": "table-cell",
+                        "width":"140px"
+                    }
+                ]
+            }
+        ],
+        "productionlotbom": [
+            {
+                "columns": [
+                    {
+                        "field": "bomProductName",
+                        "header": "ProductName",
+                        "display": "table-cell",
+                        "width":"150px"
+                    },
+                    {
+                        "field": "bomDescription",
+                        "header": "Description",
+                        "display": "table-cell",
+                        "width":"150px"
+                    },
+                    {
+                        "field": "bomItem",
+                        "header": "Item",
+                        "display": "table-cell",
+                        "width":"80px"
+                    },
+                    {
+                        "field": "operationNumber",
+                        "header": "Operation#",
+                        "display": "table-cell",
+                        "width":"120px"
+                    },
+                    {
+                        "field": "batch",
+                        "header": "batch",
+                        "display": "table-cell",
+                        "width":"100px"
+                    },
+                    {
+                        "field": "storageLoc",
+                        "header": "StorageLoc",
+                        "display": "table-cell",
+                        "width":"120px"
+                    },
+                    {
+                        "field": "isNeedValidation",
+                        "header": "Need Validation",
+                        "display": "table-cell",
+                        "width":"130px"
+                    },
+                    {
+                        "field": "itemCategory",
+                        "header": "Item Category",
+                        "display": "table-cell",
+                        "width":"130px"
+                    },
+                    {
+                        "field": "qtyUsage",
+                        "header": "Qty Usage",
+                        "display": "table-cell",
+                        "width":"110px"
+                    },
+                    {
+                        "field": "qtyUsageUnit",
+                        "header": "Usage Unit",
+                        "display": "table-cell",
+                        "width":"110px"
+                    },
+                    {
+                        "field": "deletionFlag",
+                        "header": "Deletion",
+                        "display": "table-cell",
+                        "width":"100px"
+                    }
+                ]
+            }
+        ],
+        "productionlottext": [
+            {
+                "columns": [
+                    {
+                        "field": "lineItem",
+                        "header": "Line Item",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "text",
+                        "header": "Text",
+                        "display": "table-cell"
+                    }
+                 ]
+            }
+        ]
+       
+    }
+]

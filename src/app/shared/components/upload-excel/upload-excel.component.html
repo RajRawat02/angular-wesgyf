@@ -1,0 +1,41 @@
+<!-- button to upload excel -->
+<p-button icon="pi pi-upload" label='{{_buttonLabel}}'  styleClass="ui-button-success" (click)="showDialog()">
+</p-button>
+<!-- dialog for excel upload start -->
+<p-dialog header="Excel Upload" [contentStyle]="{'max-height':'400px'}" [style]="{width:'70%',height:'60%'}" [(visible)]="display" [modal]="true" (onHide)="clearData()">
+  <input #fileInput type="file" style="display: inline-block;" (change)="incomingfile($event)" placeholder="Upload file"
+    accept=".xlsx">
+  <button type="button" class="btn btn-info ml-2" (click)="Upload()" [disabled]="buttonDisabled">Upload</button>
+<!-- div to show the table -->
+  <div *ngIf="showTable">
+    <!-- toolbar to show Import and validate button -->
+    <p-toolbar class="ml-0">
+      <p-button class="m-1 " icon="pi pi-download" label="Import" styleClass="ui-button-success" [style]="{margin: '1px'}" [disabled]="disableImportBtn" (click)="sendImportData()">
+      </p-button>
+      <p-button class="m-1" icon="pi pi-success" label="Validate" styleClass="ui-button-success" [style]="{margin: '1px'}" (click)="validateExcelAgain()">
+      </p-button>
+    </p-toolbar>
+    <!-- prime ng table start -->
+    <p-table *ngIf="_columns && _columns[0] && importData" class="shadow-lg mt-3" [columns]="_columns[0].columns" [value]="importData"
+      dataKey="id" editMode="row" [scrollable]="true" scrollHeight="400px" >
+      <ng-template pTemplate="header" let-columns>
+        <tr class="lf-background">
+          <th *ngFor="let col of columns" [ngStyle]="{'display': col.display}">
+            {{col.header}}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-editing="true" let-ri="rowIndex"
+        let-columns="columns">
+        <tr>
+          <td *ngFor="let col of columns" [ngStyle]="{'display': col.display}" pEditableColumn>
+            <app-cell-editor [action]="'import'" [col]="col" [rowData]="rowData" (validOut)="checkImport($event)"></app-cell-editor>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <!-- prime ng table end -->
+  </div>
+
+</p-dialog>
+<!-- dialog for excel upload end -->

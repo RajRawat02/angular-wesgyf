@@ -1,0 +1,3886 @@
+[
+    {
+        "plant": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "plantID",
+                        "header": "plantID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "siteCode",
+                        "header": "Site Code",
+                        "display": "table-cell",
+                        "type": "code",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "description",
+                        "header": "Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackInOutTolerence",
+                        "header": "Track InOut Tolerence",
+                        "display": "table-cell",
+                        "type": "number",
+                        "validation": [
+                            "numbersOnly",
+                            "rangeValidator"
+                        ]
+                    },
+                    {
+                        "field": "plantSitecodeExtra",
+                        "header": "Plant Site Code Extra",
+                        "display": "none"
+                    }
+                ],
+                "expandedTemplate": "table",
+                "expandableField": "plantSitecodeExtra",
+                "expandedItemNameField": "defectCode",
+                "expandedItemIdField": "defectID",
+                "expandedGroupIdField": "defectsGroupID",
+                "expandedColumns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "plantSitecodeID",
+                        "header": "plantSitecodeID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "attributeName",
+                        "header": "Attribute Name",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "attributeValue",
+                        "header": "Attribute Value",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ],
+        "department": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "departmentName",
+                        "header": "Department Name",
+                        "display": "table-cell",
+                        "type": "code",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "description",
+                        "header": "Description",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    }
+                ]
+            }
+        ],
+        "shift": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "shiftName",
+                        "header": "Shift Name",
+                        "display": "table-cell",
+                        "type": "code",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "description",
+                        "header": "Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "shiftStartTime",
+                        "header": "Start Time",
+                        "display": "table-cell",
+                        "type": "time",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "shiftEndTime",
+                        "header": "End Time",
+                        "display": "table-cell",
+                        "type": "time",
+                        "isRequired": true
+                    }
+                ]
+            }
+        ],
+        "holdcode": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "holdCode",
+                        "header": "Hold Code",
+                        "display": "table-cell",
+                        "type": "code",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "description",
+                        "header": "Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "isMaverick",
+                        "header": "Is Maverick",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isRequired": true
+                    },
+                    {
+                        "field": "departmentName",
+                        "header": "Own Department",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isRequired": true
+                    }
+                ]
+            }
+        ],
+        "spcViolation": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "violationItem",
+                        "header": "SPC Violation Item",
+                        "display": "table-cell",
+                        "type": "code"
+                    },
+                    {
+                        "field": "needHoldLot",
+                        "header": "Need Hold Lot",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "needChangeEQPStatus",
+                        "header": "Need Status Change",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "ocapCode",
+                        "header": "OCAP Code",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    }
+                ]
+            }
+        ],
+        "releasecode": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "releaseCode",
+                        "header": "Release Code",
+                        "display": "table-cell",
+                        "type": "code",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "description",
+                        "header": "Description",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ],
+        "defectCode": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "defectCode",
+                        "header": "Defect Code",
+                        "display": "table-cell",
+                        "type": "code",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "defectName",
+                        "header": "Defect Name",
+                        "display": "table-cell",
+                        "type": "noValidate",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "defectNameLoc",
+                        "header": "Loc Name",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "defectType",
+                        "header": "Defect Type",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "description",
+                        "header": "Description",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ],
+        "defectGroup": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "defectsGroupCode",
+                        "header": "Defect Group Code",
+                        "display": "table-cell",
+                        "type": "code",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "description",
+                        "header": "Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "defects",
+                        "header": "Defects",
+                        "display": "none"
+                    }
+                ],
+                "expandedTemplate": "picklist",
+                "expandableField": "defects",
+                "expandedItemNameField": "defectCode",
+                "expandedItemIdField": "defectID",
+                "expandedGroupIdField": "defectsGroupID"
+            }
+        ],
+        "edcParameter": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "edcParameterCode",
+                        "header": "Parameter Code",
+                        "display": "table-cell",
+                        "type": "code",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "edcParameterName",
+                        "header": "Parameter Name",
+                        "display": "table-cell",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "edcParameterNameLoc",
+                        "header": "Loc Name",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "parameterType",
+                        "header": "Parameter Type",
+                        "display": "table-cell",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "specMin",
+                        "header": "Spec Min",
+                        "display": "table-cell",
+                        "type": "float",
+                        "validation": [
+                            "numbersOnly",
+                            "rangeValidator"
+                        ],
+                        "min": "specMin",
+                        "max": "specMax"
+                    },
+                    {
+                        "field": "specMax",
+                        "header": "Spec Max",
+                        "display": "table-cell",
+                        "type": "float",
+                        "max": "specMax",
+                        "min": "specMin"
+                    },
+                    {
+                        "field": "isNeedHoldLot",
+                        "header": "Hold Lot Required",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isRequired": true
+                    },
+                    {
+                        "field": "isNeedSendToSPC",
+                        "header": "Send to SPC",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isRequired": true
+                    },
+                    {
+                        "field": "reasonableMin",
+                        "header": "Reasonable Min",
+                        "display": "table-cell",
+                        "type": "number",
+                        "min": "reasonableMin",
+                        "max": "reasonableMax"
+                    },
+                    {
+                        "field": "reasonableMax",
+                        "header": "Reasonable Max",
+                        "display": "table-cell",
+                        "type": "number",
+                        "min": "reasonableMin",
+                        "max": "reasonableMax"
+                    },
+                    {
+                        "field": "holdCode",
+                        "header": "Hold Code",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isRequired": true
+                    },
+                    {
+                        "field": "isRequired",
+                        "header": "Required",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isRequired": true
+                    },
+                    {
+                        "field": "unit",
+                        "header": "Unit",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "format",
+                        "header": "Format",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "defaultValue",
+                        "header": "Default Value",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "sourceJSON",
+                        "header": "Source JSON",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "sourceInterface",
+                        "header": "Source interface",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "regularExpression",
+                        "header": "Regular Expression",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    }
+                ]
+            }
+        ],
+        "edcPlan": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "edcPlanCode",
+                        "header": "EDC Plan Code",
+                        "display": "table-cell",
+                        "type": "code",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "description",
+                        "header": "Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "edcParameters",
+                        "header": "edcParameters",
+                        "display": "none",
+                        "type": "noValidate"
+                    }
+                ],
+                "expandedTemplate": "picklist",
+                "expandableField": "edcParameters",
+                "expandedItemNameField": "edcParameterCode",
+                "expandedItemIdField": "edcParameterID",
+                "expandedGroupIdField": "edcPlanID"
+            }
+        ],
+        "qiParameter": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "qiParameterCode",
+                        "header": "Parameter Code",
+                        "display": "table-cell",
+                        "type": "code",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "qiParameterName",
+                        "header": "Parameter Name",
+                        "display": "table-cell",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "qiParameterNameLoc",
+                        "header": "Loc Name",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "testCount",
+                        "header": "Test Count",
+                        "display": "table-cell",
+                        "type": "number",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "displayType",
+                        "header": "Display Type",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isRequired": true
+                    },
+                    {
+                        "field": "unit",
+                        "header": "Unit",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "parameterType",
+                        "header": "Parameter Type",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isRequired": true
+                    },
+                    {
+                        "field": "specMin",
+                        "header": "Spec Min",
+                        "display": "table-cell",
+                        "type": "float",
+                        "max": "specMax",
+                        "min": "specMin"
+                    },
+                    {
+                        "field": "specMax",
+                        "header": "Spec Max",
+                        "display": "table-cell",
+                        "type": "float",
+                        "max": "specMax",
+                        "min": "specMin"
+                    },
+                    {
+                        "field": "reasonableMin",
+                        "header": "Reasonable Min",
+                        "display": "table-cell",
+                        "type": "number",
+                        "min": "reasonableMin",
+                        "max": "reasonableMax"
+                    },
+                    {
+                        "field": "reasonableMax",
+                        "header": "Reasonable Max",
+                        "display": "table-cell",
+                        "type": "number",
+                        "min": "reasonableMin",
+                        "max": "reasonableMax"
+                    }
+                ]
+            }
+        ],
+        "qiPlan": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "qiPlanCode",
+                        "header": "QI Plan Code",
+                        "display": "table-cell",
+                        "type": "code",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "qiPlanType",
+                        "header": "QI Plan Type",
+                        "display": "table-cell",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "description",
+                        "header": "Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "holdCode",
+                        "header": "Hold Code",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "qiParameters",
+                        "header": "QI Parameters",
+                        "display": "none"
+                    }
+                ],
+                "expandedTemplate": "picklist",
+                "expandableField": "qiParameters",
+                "expandedItemNameField": "qiParameterCode",
+                "expandedItemIdField": "qiParameterID",
+                "expandedGroupIdField": "qiPlanID"
+            }
+        ],
+        "product": {
+            "product": [
+                {
+                    "columns": [
+                        {
+                            "field": "id",
+                            "header": "id",
+                            "display": "none"
+                        },
+                        {
+                            "field": "attributeName",
+                            "header": "Attribute Name",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "attributeValue",
+                            "header": "Attribute Value",
+                            "display": "table-cell"
+                        }
+                    ]
+                }
+            ],
+            "productRouteText": [
+                {
+                    "columns": [
+                        {
+                            "field": "route_KeyNum",
+                            "header": "Route Key Num",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "route_OperationNode",
+                            "header": "Route Operation Node",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "line",
+                            "header": "Line",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "siteCode",
+                            "header": "Site Code",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "description",
+                            "header": "Description",
+                            "display": "table-cell"
+                        }
+                    ]
+                }
+            ],
+            "productRoutePRT": [
+                {
+                    "columns": [
+                        {
+                            "field": "route_KeyNum",
+                            "header": "Route Key Num",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "route_OperationNode",
+                            "header": "Route Operation Node",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "item",
+                            "header": "Item",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "siteCode",
+                            "header": "Site Code",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "toolNumber",
+                            "header": "Tool Number",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "ToolDescription",
+                            "header": "Tool Description",
+                            "display": "table-cell"
+                        }
+                    ]
+                }
+            ],
+            "productRouteBOM": [
+                {
+                    "columns": [
+                        {
+                            "field": "id",
+                            "header": "ID",
+                            "display": "none"
+                        },
+                        {
+                            "field": "productID",
+                            "header": "Product ID",
+                            "display": "none"
+                        },
+                        {
+                            "field": "routeID",
+                            "header": "Route ID",
+                            "display": "none"
+                        },
+                        {
+                            "field": "siteCode",
+                            "header": "Site Code",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "boM_KeyNum",
+                            "header": "BOM Key Num",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "boM_BOMUsage",
+                            "header": "BOM Usage",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "boM_AlternativeBOM",
+                            "header": "Alternative BOM",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "bomDescription",
+                            "header": "BOM Description",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "baseQty",
+                            "header": "Base Qty",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "baseQtyUnit",
+                            "header": "Base Qty Unit",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "bomItem",
+                            "header": "BOM Item",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "boM_ItemNode",
+                            "header": "BOM Item Node",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "counter",
+                            "header": "Counter",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "bomProductName",
+                            "header": "BOM Product Name",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "qtyUsage",
+                            "header": "Qty Usage",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "qtyUsageUnit",
+                            "header": "Qty Usage Unit",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "sortString",
+                            "header": "Sort String",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "subAssemblyIndicator",
+                            "header": "Sub Assembly Indicator",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "bulkMaterialIndicator",
+                            "header": "Bulk Material Indicator",
+                            "display": "table-cell"
+                        }
+                    ]
+                }
+            ],
+            "productRoute": [
+                {
+                    "columns": [
+                        {
+                            "field": "route_KeyNum",
+                            "header": "Route Key Num",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "route_GroupCounter",
+                            "header": "Route Group Counter",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "siteCode",
+                            "header": "Site Code",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "route_OperationNode",
+                            "header": "Route Operation Node",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "operationNum",
+                            "header": "Operation Num",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "ctrlKey",
+                            "header": "Ctrl Key",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "workCtr",
+                            "header": "Work Ctr",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "baseQty",
+                            "header": "Base Qty",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "baseQtyUnit",
+                            "header": "Base Qty Unit",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "operationDescription",
+                            "header": "Operation Description",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "costCtr",
+                            "header": "Cost Ctr",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "activityType1",
+                            "header": "Activity Type1",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "activityType1Unit",
+                            "header": "Activity Type1 Unit",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "activityType1Value",
+                            "header": "Activity Type1 Value",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "activityType2",
+                            "header": "Activity Type2",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "activityType2Unit",
+                            "header": "Activity Type2 Unit",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "activityType2Value",
+                            "header": "Activity Type2 Value",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "activityType3",
+                            "header": "Activity Type3",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "activityType3Unit",
+                            "header": "Activity Type3 Unit",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "activityType3Value",
+                            "header": "Activity Type3 Value",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "techNotes",
+                            "header": "Tech Notes",
+                            "display": "table-cell"
+                        }
+                    ]
+                }
+            ],
+            "routeAttributes": [
+                {
+                    "columns": [
+                        {
+                            "field": "id",
+                            "header": "id",
+                            "display": "none"
+                        },
+                        {
+                            "field": "attributeName",
+                            "header": "Attribute Name",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "attributeValue",
+                            "header": "Attribute Value",
+                            "display": "table-cell"
+                        }
+                    ]
+                }
+            ],
+            "productDescription": [
+                {
+                    "columns": [
+                        {
+                            "field": "id",
+                            "header": "id",
+                            "display": "none"
+                        },
+                        {
+                            "field": "productName",
+                            "header": "Product",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "siteCode",
+                            "header": "Site Code",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "languageCode",
+                            "header": "Language Code",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "description",
+                            "header": "Description",
+                            "display": "table-cell"
+                        }
+                    ]
+                }
+            ],
+            "productBOMRoute": [
+                {
+                    "columns": [
+                        {
+                            "field": "id",
+                            "header": "id",
+                            "display": "none"
+                        },
+                        {
+                            "field": "attributeName",
+                            "header": "Attribute Name",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "attributeValue",
+                            "header": "Attribute Value",
+                            "display": "table-cell"
+                        }
+                    ]
+                }
+            ],
+            "bomSub": [
+                {
+                    "columns": [
+                        {
+                            "field": "id",
+                            "header": "ID",
+                            "display": "none"
+                        },
+                        {
+                            "field": "bomID",
+                            "header": "BOM ID",
+                            "display": "none"
+                        },
+                        {
+                            "field": "siteCode",
+                            "header": "Site Code",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "bomSubItem",
+                            "header": "BOM Sub Item",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "bomSubItemQty",
+                            "header": "BOM Sub Item Qty",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "installPoint",
+                            "header": "Install Point",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "bomSubItemDescription",
+                            "header": "BOM Sub Item Description",
+                            "display": "table-cell"
+                        }
+                    ]
+                }
+            ],
+            "productUnitConversion": [
+                {
+                    "columns": [
+                        {
+                            "field": "id",
+                            "header": "ID",
+                            "display": "none"
+                        },
+                        {
+                            "field": "baseUnit",
+                            "header": "Base Unit",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "baseUnitQty",
+                            "header": "Base Unit Qty",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "denominatorBaseUnit",
+                            "header": "Denominator Base Unit",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "interArticleNumber",
+                            "header": "Inter Article Number",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "interArticleNumberCategory",
+                            "header": "Inter Article Number Category",
+                            "display": "table-cell"
+                        }
+                    ]
+                }
+            ]
+        },
+        "nonConformance": [
+            {
+                "columns": [
+                    {
+                        "field": "productionLotNumber",
+                        "header": "ColHdr Lot #",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "product",
+                        "header": "ColHdr Product",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "holdRouteName",
+                        "header": "ColHdr Route",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "holdCodeName",
+                        "header": "ColHdr Hold Code",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "holdDate",
+                        "header": "ColHdr Hold Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "holdDescription",
+                        "header": "ColHdr Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "holdToDeptName",
+                        "header": "ColHdr Department",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "nonConformStatus",
+                        "header": "ColHdr Status",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    }
+                ]
+            }
+        ],
+        "nonConformanceHoldHistory": [
+            {
+                "columns": [
+                    {
+                        "field": "productionLotNumber",
+                        "header": "ColHdr Production Lot #",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "preHoldCode",
+                        "header": "ColHdr Pre Hold Code",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "newHoldCode",
+                        "header": "ColHdr New Hold Code",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "preHoldToDept",
+                        "header": "ColHdr Pre Hold To Dept",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "newHoldToDept",
+                        "header": "ColHdr New Hold To Dept",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "changeComments",
+                        "header": "ColHdr Change Comments",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "createdBy",
+                        "header": "ColHdr Modified By",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "createdTime",
+                        "header": "ColHdr Modified Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    }
+                ]
+            }
+        ],
+        "nonConformanceReleaseHistory": [
+            {
+                "columns": [
+                    {
+                        "field": "productionLotNumber",
+                        "header": "ColHdr Lot #",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "releaseCode",
+                        "header": "ColHdr Release Code",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "releaseCodeDesc",
+                        "header": "ColHdr Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "rootCause",
+                        "header": "ColHdr Root Cause",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "disposeAnalysis",
+                        "header": "ColHdr Dispose Analysis",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "disposeComments",
+                        "header": "ColHdr Dispose Comments",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "qaBuyoffResult",
+                        "header": "ColHdr QA BuyOff Result",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "qaBuyoffBy",
+                        "header": "ColHdr BuyOff By",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "qaBuyoffComments",
+                        "header": "ColHdr BuyOff Comments",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "qaBuyoffTime",
+                        "header": "ColHdr BuyOff Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "createdBy",
+                        "header": "ColHdr Modified By",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "createdTime",
+                        "header": "ColHdr Modified Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    }
+                ]
+            }
+        ],
+        "equipment": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "ID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "equipment",
+                        "header": "Equipment",
+                        "display": "table-cell",
+                        "type": "code"
+                    },
+                    {
+                        "field": "eqpDescription",
+                        "header": "Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "eqpType",
+                        "header": "Equipment Type",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "eqpFunctionalLocation",
+                        "header": "Functional Location Code",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "status",
+                        "header": "Current Status",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "colorField": "layoutColor"
+                    },
+                    {
+                        "field": "layoutColor",
+                        "header": "Layout Color",
+                        "display": "none"
+                    },
+                    {
+                        "field": "lastComments",
+                        "header": "Last Comments",
+                        "display": "table-cell",
+                        "disableFiltering": true
+                    },
+                    {
+                        "field": "duration",
+                        "header": "Duration(Hrs)",
+                        "display": "table-cell",
+                        "type": "number",
+                        "disableFiltering": true
+                    }
+                ]
+            }
+        ],
+        "equipmentList": [
+            {
+                "columns": [
+                    {
+                        "field": "equipment",
+                        "header": "Equipment ID",
+                        "display": "table-cell",
+                        "type": "noValidate",
+                        "isRequired": true,
+                        "isDisabled": true
+                    },
+                    {
+                        "field": "eqpDescription",
+                        "header": "Equipment Description",
+                        "display": "table-cell",
+                        "isDisabled": true
+                    },
+                    {
+                        "field": "isActive",
+                        "header": "Is Active",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isRequired": true
+                    },
+                    {
+                        "field": "eqpDescriptionLoc",
+                        "header": "Description Loc",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "eqpType",
+                        "header": "Equipment Type",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "eqpFunctionalLocation",
+                        "header": "Functional Location Code",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isDisabled": true
+                    },
+                    {
+                        "field": "eqpFailmodeGroup",
+                        "header": "Fail Mode Group",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "eqpToolingGroup",
+                        "header": "Tooling Group",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    }
+                ]
+            }
+        ],
+        "equipmentStatusHistory": [
+            {
+                "columns": [
+                    {
+                        "field": "changeEmployeeID",
+                        "header": "Changed By",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "changeTime",
+                        "header": "Change Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "preChangeTime",
+                        "header": "Pre Change Time",
+                        "display": "none",
+                        "type": "date"
+                    },
+                    {
+                        "field": "comments",
+                        "header": "Comments",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "description",
+                        "header": "Description",
+                        "display": "none"
+                    },
+                    {
+                        "field": "statusFrom",
+                        "header": "Status From",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "statusTo",
+                        "header": "Status To",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "failmodesText",
+                        "header": "Selected FailModes",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "notificationType",
+                        "header": "Notification Type",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "workOrdersText",
+                        "header": "Selected WorkOrders",
+                        "display": "table-cell",
+                        "type": "link"
+                    }
+                ]
+            }
+        ],
+        "toolingRevision": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "toolingName",
+                        "header": "Tooling Name",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "changeEmployeeID",
+                        "header": "Change Employee ID",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "changeTime",
+                        "header": "Change Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "changeType",
+                        "header": "Change Type",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "comments",
+                        "header": "Comments",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "equipmentID",
+                        "header": "equipmentID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "modifiedTime",
+                        "header": "Modified Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "toolingID",
+                        "header": "toolingID",
+                        "display": "none"
+                    }
+                ]
+            }
+        ],
+        "equipmentAvailableStatus": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "statusName",
+                        "header": "Status",
+                        "display": "table-cell",
+                        "type": "code",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "statusNameLoc",
+                        "header": "Status Loc",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "isActive",
+                        "header": "Is Active",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isRequired": true
+                    },
+                    {
+                        "field": "isReserved",
+                        "header": "Is Reserved",
+                        "display": "none"
+                    },
+                    {
+                        "field": "isAbleTrackIn",
+                        "header": "Is Able TrackIn",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isRequired": true
+                    },
+                    {
+                        "field": "layoutColor",
+                        "header": "Layout Color",
+                        "display": "table-cell",
+                        "type": "colorPicker",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "ownerDepartmentID",
+                        "header": "OwnerDepartment ID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "departmentName",
+                        "header": "Department Name",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "semI10StatusGroup",
+                        "header": "SemI10 Status Group",
+                        "display": "table-cell",
+                        "isRequired": true,
+                        "type": "list",
+                        "options": []
+                    }
+                ]
+            }
+        ],
+        "equipmentStatusTransition": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "ID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "statusFromId",
+                        "header": "Status From ID",
+                        "display": "none",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "statusToId",
+                        "header": "Status To ID",
+                        "display": "none",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "statusFromName",
+                        "header": "Status From",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "statusToName",
+                        "header": "Status To",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "actionInPMS",
+                        "header": "Action In PMS",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "isReserved",
+                        "header": "is Reserved",
+                        "display": "none"
+                    }
+                ]
+            }
+        ],
+        "equipmentType": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "ID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "eqpType",
+                        "header": "Equipment Type",
+                        "display": "table-cell",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "eqpTypeLoc",
+                        "header": "Location Description",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    }
+                ]
+            }
+        ],
+        "workOrder": [
+            {
+                "columns": [
+                    {
+                        "field": "orderNo",
+                        "header": "Order No",
+                        "display": "table-cell",
+                        "type": "number"
+                    },
+                    {
+                        "field": "eqpFunctionalLocation",
+                        "header": "Functional Location",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "scheduledFinishDate",
+                        "header": "Scheduled Finish",
+                        "display": "table-cell",
+                        "type": "shortDate"
+                    },
+                    {
+                        "field": "orderDescription",
+                        "header": "Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "eqpDescription",
+                        "header": "Equipment Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "equipment",
+                        "header": "Equipment",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "notificationID",
+                        "header": "Notification",
+                        "display": "table-cell",
+                        "type": "number"
+                    },
+                    {
+                        "field": "isCompleted",
+                        "header": "Is Completed",
+                        "display": "table-cell",
+                        "type": "checkbox",
+                        "options": []
+                    },
+                    {
+                        "field": "orderType",
+                        "header": "Order Type",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    }
+                ]
+            }
+        ],
+        "operation": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Operation ID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "proposedTime",
+                        "header": "Proposed Time",
+                        "display": "table-cell",
+                        "type": "number"
+                    },
+                    {
+                        "field": "totalTime",
+                        "header": "Total Time",
+                        "display": "table-cell",
+                        "type": "number"
+                    },
+                    {
+                        "field": "operation",
+                        "header": "Operation",
+                        "display": "table-cell",
+                        "type": "number"
+                    },
+                    {
+                        "field": "operationDescription",
+                        "header": "Operation Description",
+                        "display": "table-cell",
+                        "width": "350px"
+                    },
+                    {
+                        "field": "orderID",
+                        "header": "Order ID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "closedDate",
+                        "header": "Closed Date",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "isCompleted",
+                        "header": "Is Completed",
+                        "display": "table-cell",
+                        "type": "checkbox"
+                    }
+                ]
+            }
+        ],
+        "operationHistory": [
+            {
+                "columns": [
+                    {
+                        "field": "confirmationText",
+                        "header": "Confirmation Text",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "confirmationDate",
+                        "header": "Confirmation Date",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "idNumber",
+                        "header": "User",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "time",
+                        "header": "Time",
+                        "display": "table-cell",
+                        "type": "number"
+                    },
+                    {
+                        "field": "unitsOfMeasure",
+                        "header": "Unit Of Measure",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "causeText",
+                        "header": "Cause Text",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "repairText",
+                        "header": "Repair Text ",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "isFinalConfirmation",
+                        "header": "Is Final Confirmation",
+                        "display": "table-cell",
+                        "type": "checkbox"
+                    },
+                    {
+                        "field": "attachmentID",
+                        "header": "Uploaded File",
+                        "display": "table-cell",
+                        "type": "downloadLink",
+                        "fileName": "fileName"
+                    }
+                ]
+            }
+        ],
+        "failMode": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "failmode",
+                        "header": "Fail Mode",
+                        "display": "table-cell",
+                        "type": "code",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "failmodeDescription",
+                        "header": "Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "failmodeDescriptionLOC",
+                        "header": "Description LOC",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "isRequiredQABuyoff",
+                        "header": "Is Required QA Buyoff",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isRequired": true
+                    },
+                    {
+                        "field": "ocapCode",
+                        "header": "OCAP Code",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "ocapCodeID",
+                        "header": "OCAP Code ID",
+                        "display": "none"
+                    }
+                ]
+            }
+        ],
+        "failModeGroup": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "failmodeGroupName",
+                        "header": "Fail Mode Group",
+                        "display": "table-cell",
+                        "type": "code"
+                    },
+                    {
+                        "field": "description",
+                        "header": "Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "failmodes",
+                        "header": "Fail Modes",
+                        "display": "none"
+                    }
+                ],
+                "expandedTemplate": "picklist",
+                "expandableField": "failmodes",
+                "expandedItemNameField": "failmode",
+                "expandedItemIdField": "id",
+                "expandedGroupIdField": "failmodeGroupID"
+            }
+        ],
+        "pmsData": {
+            "equipment": [
+                {
+                    "columns": [
+                        {
+                            "field": "equipment",
+                            "header": "Equipment ID",
+                            "display": "table-cell",
+                            "type": "code"
+                        },
+                        {
+                            "field": "eqpDescription",
+                            "header": "Equipment Description",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "isActive",
+                            "header": "Is Active",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "eqpDescriptionLoc",
+                            "header": "Description Loc",
+                            "display": "table-cell",
+                            "type": "noValidate"
+                        },
+                        {
+                            "field": "eqpType",
+                            "header": "Equipment Type",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "eqpFunctionalLocation",
+                            "header": "Functional Location Code",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "eqpFailmodeGroup",
+                            "header": "Fail Mode Group",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "eqpToolingGroup",
+                            "header": "Tooling Group",
+                            "display": "table-cell"
+                        }
+                    ]
+                }
+            ],
+            "workCenter": [
+                {
+                    "columns": [
+                        {
+                            "field": "id",
+                            "header": "ID",
+                            "display": "none"
+                        },
+                        {
+                            "field": "description",
+                            "header": "Description",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "plantName",
+                            "header": "Plant Name",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "workCenterCode",
+                            "header": "Work Center Code",
+                            "display": "table-cell"
+                        }
+                    ]
+                }
+            ],
+            "pmsPlant": [
+                {
+                    "columns": [
+                        {
+                            "field": "id",
+                            "header": "Id",
+                            "display": "none"
+                        },
+                        {
+                            "field": "plantName",
+                            "header": "Plant Name",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "isProdLotGenerateAuto",
+                            "header": "Is ProdLotGenerate Auto",
+                            "display": "table-cell"
+                        }
+                    ]
+                }
+            ],
+            "functionalLocation": [
+                {
+                    "columns": [
+                        {
+                            "field": "id",
+                            "header": "ID",
+                            "display": "none"
+                        },
+                        {
+                            "field": "description",
+                            "header": "Description",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "plantName",
+                            "header": "Plant Name",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "functionalLocationCode",
+                            "header": "Functional Location Code",
+                            "display": "table-cell"
+                        }
+                    ]
+                }
+            ],
+            "counterEntry": [
+                {
+                    "columns": [
+                        {
+                            "field": "id",
+                            "header": "ID",
+                            "display": "none"
+                        },
+                        {
+                            "field": "counterDescription",
+                            "header": "Counter Description",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "plantName",
+                            "header": "Plant Name",
+                            "display": "table-cell"
+                        },
+                        {
+                            "field": "counterNo",
+                            "header": "Counter No",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "counterValue",
+                            "header": "Counter Value",
+                            "display": "table-cell",
+                            "type": "number"
+                        },
+                        {
+                            "field": "equipmentID",
+                            "header": "Equipment ID",
+                            "display": "none"
+                        },
+                        {
+                            "field": "functionalLocationID",
+                            "header": "FunctionalLocation ID",
+                            "display": "none"
+                        },
+                        {
+                            "field": "measurmentEntryDate",
+                            "header": "Measurment Entry Date",
+                            "display": "table-cell",
+                            "type": "date"
+                        },
+                        {
+                            "field": "unit",
+                            "header": "Unit",
+                            "display": "table-cell"
+                        }
+                    ]
+                }
+            ]
+        },
+        "toolingType": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "ID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "toolingType",
+                        "header": "Tooling Type",
+                        "display": "table-cell",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "toolingTypeLoc",
+                        "header": "Tooling Loc",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    }
+                ]
+            }
+        ],
+        "tooling": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "toolingTypeID",
+                        "header": "toolingTypeID",
+                        "display": "none",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "toolingName",
+                        "header": "Tooling Name",
+                        "display": "table-cell",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "toolingNameLoc",
+                        "header": "Tooling Name Loc",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "toolingTypeName",
+                        "header": "Tooling Type",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isRequired": true
+                    },
+                    {
+                        "field": "subToolings",
+                        "header": "Sub Toolings",
+                        "display": "none"
+                    }
+                ],
+                "expandedTemplate": "table",
+                "expandableField": "subToolings",
+                "expandedItemNameField": "toolingNameLoc",
+                "expandedItemIdField": "defectID",
+                "expandedGroupIdField": "defectsGroupID",
+                "expandedColumns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "toolingID",
+                        "header": "toolingID",
+                        "display": "none",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "subToolingName",
+                        "header": "Sub Tooling Name",
+                        "display": "table-cell",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "subToolingNameLoc",
+                        "header": "Sub Tooling Name Loc",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "toolinglife",
+                        "header": "Tooling Life",
+                        "display": "table-cell",
+                        "type": "number",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "warningPercentage",
+                        "header": "Warning Percentage",
+                        "display": "table-cell",
+                        "type": "number"
+                    }
+                ]
+            }
+        ],
+        "toolingGroup": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "toolingGroupName",
+                        "header": "Tooling Group",
+                        "display": "table-cell",
+                        "type": "code",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "toolingGroupNameLoc",
+                        "header": "Tooling Group Name Loc",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "availableToolingTypes",
+                        "header": "Available Tooling Types",
+                        "display": "none"
+                    }
+                ],
+                "expandedTemplate": "picklist",
+                "expandableField": "availableToolingTypes",
+                "expandedItemNameField": "toolingType",
+                "expandedItemIdField": "id",
+                "expandedGroupIdField": "failmodeGroupID"
+            }
+        ],
+        "productTree": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "toolingTypeID",
+                        "header": "toolingTypeID",
+                        "display": "none"
+                    }
+                ],
+                "expandedTemplate": "table",
+                "expandableField": "subToolings",
+                "expandedItemNameField": "toolingNameLoc",
+                "expandedItemIdField": "defectID",
+                "expandedGroupIdField": "defectsGroupID",
+                "expandedColumns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "toolingID",
+                        "header": "toolingID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "tooling",
+                        "header": "tooling",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ],
+        "toolingAvailable": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "toolingName",
+                        "header": "Tooling Name",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "toolingType",
+                        "header": "Tooling Type",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ],
+        "toolingCurrentStatus": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "subToolingID",
+                        "header": "Sub Tooling ID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "subTooling",
+                        "header": "Sub Tooling",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "toolinglife",
+                        "header": "Tooling Life",
+                        "display": "table-cell",
+                        "type": "number"
+                    },
+                    {
+                        "field": "toolinglifeLeft",
+                        "header": "Tooling Life Left",
+                        "display": "table-cell",
+                        "type": "number",
+                        "colorField": "warningColor"
+                    }
+                ]
+            }
+        ],
+        "toolingUsageHistory": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "subToolingID",
+                        "header": "Sub Tooling ID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "subTooling",
+                        "header": "Sub Tooling",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "toolinglifeUsed",
+                        "header": "Total Tooling Life Used",
+                        "display": "table-cell",
+                        "type": "number"
+                    },
+                    {
+                        "field": "toolinglifeLeft",
+                        "header": "Tooling Life Left",
+                        "display": "table-cell",
+                        "type": "number"
+                    },
+                    {
+                        "field": "output",
+                        "header": "Output",
+                        "display": "table-cell",
+                        "type": "number"
+                    },
+                    {
+                        "field": "comments",
+                        "header": "Comments",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "operationDate",
+                        "header": "Operation Date",
+                        "display": "table-cell",
+                        "type": "date"
+                    }
+                ]
+            }
+        ],
+        "toolingResetHistory": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "subToolingID",
+                        "header": "Sub Tooling ID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "subTooling",
+                        "header": "Sub Tooling",
+                        "display": "none"
+                    },
+                    {
+                        "field": "toolinglifeLeft",
+                        "header": "Tooling Life Left",
+                        "display": "table-cell",
+                        "type": "number"
+                    },
+                    {
+                        "field": "comments",
+                        "header": "Comments",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "resetEmployeeID",
+                        "header": "Reset Employee",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "resetTime",
+                        "header": "Reset Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    }
+                ]
+            }
+        ],
+        "FAIRecords": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "faiNumber",
+                        "header": "FAI Number",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "product",
+                        "header": "Product",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "route",
+                        "header": "Route",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "status",
+                        "header": "Status",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "createdTime",
+                        "header": "Created Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "createdBy",
+                        "header": "Created By",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "modifiedTime",
+                        "header": "Modified Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "modifiedBy",
+                        "header": "Modified By",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ],
+        "IPQCRecords": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "ipqcid",
+                        "header": "IPQC ID",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "employeeID",
+                        "header": "Emp ID",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "leaderEmployeeID",
+                        "header": "Leader Emp ID",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "ownerEmployeeID",
+                        "header": "Owner Emp ID",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "qaReviewerEmployeeID",
+                        "header": "QA Reviewer Emp ID",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "shift",
+                        "header": "Shift",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "statusName",
+                        "header": "Status",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "equipmentString",
+                        "header": "Equipment",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "productionLotNum",
+                        "header": "Lot No",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "product",
+                        "header": "Product",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "routeString",
+                        "header": "Route",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "totalQty",
+                        "header": "Total Qty",
+                        "display": "table-cell",
+                        "type": "number"
+                    },
+                    {
+                        "field": "rejectQty",
+                        "header": "Reject Qty",
+                        "display": "table-cell",
+                        "type": "number"
+                    },
+                    {
+                        "field": "rejectReason",
+                        "header": "Reject Reason",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "modifiedTime",
+                        "header": "Create Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    }
+                ]
+            }
+        ],
+        "qualityFQARecords": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "fqaNumber",
+                        "header": "FQA Number",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "product",
+                        "header": "Product",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "statusText",
+                        "header": "Status",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "createdTime",
+                        "header": "Created Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "createdBy",
+                        "header": "Created By",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "modifiedTime",
+                        "header": "Modified Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "modifiedBy",
+                        "header": "Modified By",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ],
+        "faiProductionLot": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "productionLotNo",
+                        "header": "Production Lot #",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "route",
+                        "header": "Route",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ],
+        "fqaProductionLot": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "productionLotNo",
+                        "header": "Production Lot #",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "product",
+                        "header": "Product",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ],
+        "account": [
+            {
+                "columns": [
+                    {
+                        "field": "employeeID",
+                        "header": "EmployeeID",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "displayName",
+                        "header": "Full name",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "company",
+                        "header": "Company",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "hireDate",
+                        "header": "HireDate",
+                        "display": "table-cell",
+                        "type": "Calendar"
+                    },
+                    {
+                        "field": "email",
+                        "header": "Email",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "costCenter",
+                        "header": "CostCenter",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "managerIDNumber",
+                        "header": "ManagerIDNumber",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "managerName",
+                        "header": "ManagerName",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "status",
+                        "header": "Status",
+                        "display": "table-cell",
+                        "type": "Toggle"
+                    },
+                    {
+                        "field": "accountType",
+                        "header": "AccountType",
+                        "display": "table-cell",
+                        "Disabled": "true",
+                        "default": "MES"
+                    }
+                ],
+                "expandedTemplate": "doublemultidropdown",
+                "Fieldname2Dropdown": "accountRoles",
+                "Fieldname2Dropdown2": "accountDepartments",
+                "FieldnameID_DD1": "id",
+                "FieldnameID_DD2": "id",
+                "LabelFieldname2Dropdown": "Select Roles",
+                "LabelFieldname2Dropdown2": "Select Departments"
+            }
+        ],
+        "role": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "roleName",
+                        "header": "Role Name",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "roleDescription",
+                        "header": "Role Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "accounts",
+                        "header": "Accounts",
+                        "display": "none"
+                    }
+                ],
+                "expandedTemplate": "picklist",
+                "expandableField": "accounts",
+                "expandedItemNameField": "displayName",
+                "expandedItemIdField": "id",
+                "expandedGroupIdField": "roleID"
+            }
+        ],
+        "Opt_EmployeeCertification": [
+            {
+                "columns": [
+                    {
+                        "field": "employeeID",
+                        "header": "Employee ID",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "employeeFullName",
+                        "header": "Employee Full Name",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "certificationType",
+                        "header": "CertificationType",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "certificationName",
+                        "header": "Certification Name",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "certificationExpirationDate",
+                        "header": "Certification Expiration Date",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ],
+        "een": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "product",
+                        "header": "Product",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "prodVersion",
+                        "header": "Prod Version",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "operationNum",
+                        "header": "Operation Num",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "operationDescription",
+                        "header": "Operation Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "message",
+                        "header": "Message",
+                        "display": "none"
+                    }
+                ]
+            }
+        ],
+        "OCAPParameters": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "ocapParameterCode",
+                        "header": "Parameter Code",
+                        "display": "table-cell",
+                        "type": "code",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "ocapParameterName",
+                        "header": "Name",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "ocapParameterNameLoc",
+                        "header": "Loc Name",
+                        "display": "table-cell",
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "ocapParameterType",
+                        "header": "Parameter Type",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "modifiedTime",
+                        "header": "Modified Time",
+                        "display": "none",
+                        "type": "date"
+                    }
+                ]
+            }
+        ],
+        "OCAPDataPlan": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "ocapDataPlanCode",
+                        "header": "Plan Code",
+                        "display": "table-cell",
+                        "type": "code",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "description",
+                        "header": "Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "modifiedTime",
+                        "header": "Modified Time",
+                        "display": "none",
+                        "type": "date"
+                    },
+                    {
+                        "field": "ocapParameters",
+                        "header": "OCAP Parameters",
+                        "display": "none"
+                    }
+                ],
+                "expandedTemplate": "picklist",
+                "expandableField": "ocapParameters",
+                "expandedItemNameField": "ocapParameterCode",
+                "expandedItemIdField": "ocapParameterID",
+                "expandedGroupIdField": "ocapDataPlanID"
+            }
+        ],
+        "OCAPHeader": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "ocapNumber",
+                        "header": "OCAP Number",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "ocapCode",
+                        "header": "OCAP Code",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "equipmentName",
+                        "header": "Equipment",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "productionLotNum",
+                        "header": "Production Lot",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "defectType",
+                        "header": "Defect Type",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "status",
+                        "header": "Status",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "reason",
+                        "header": "Close Reason",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "modifiedTime",
+                        "header": "Modified Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    }
+                ]
+            }
+        ],
+        "transactionHistory": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "transactionType",
+                        "header": "Transaction Type",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "transactionUser",
+                        "header": "User",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "transactionTime",
+                        "header": "Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "transactionDescription",
+                        "header": "Description",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "transactionRouteNumber",
+                        "header": "Route",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ],
+        "operationInformation": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "productionLotRouteID",
+                        "header": "productionLotRouteID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "equipmentID",
+                        "header": "equipmentID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "productionLotNumber",
+                        "header": "Production Lot Number",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "equipment",
+                        "header": "Equipment",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackInOperator1",
+                        "header": "Track In Operator 1",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackInOperator2",
+                        "header": "Track In Operator 2",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackInShiftName",
+                        "header": "Track In Shift",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackInRecipe",
+                        "header": "Track In Recipe",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackInComments",
+                        "header": "Track In Comments",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackInQty",
+                        "header": "Track In Qty",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackOutOperator1",
+                        "header": "Track Out Operator 1",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackOutOperator2",
+                        "header": "Track Out Operator 2",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackOutShiftName",
+                        "header": "Track Out Shift",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackOutComments",
+                        "header": "Track Out Comments",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackOutQty",
+                        "header": "Track Out Qty",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "scrapQty",
+                        "header": "Scrap Qty",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "firstPassQty",
+                        "header": "First Pass Qty",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "transferInQty",
+                        "header": "Transfer In Qty",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackInTime",
+                        "header": "Track In Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "transferOutQty",
+                        "header": "Transfer Out Qty",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackOutTime",
+                        "header": "Track Out Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "toolingID",
+                        "header": "Tooling ID",
+                        "display": "none"
+                    }
+                ]
+            }
+        ],
+        "operationInformationOut": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "productionLotRouteID",
+                        "header": "productionLotRouteID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "equipmentID",
+                        "header": "equipmentID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "productionLotNumber",
+                        "header": "Production Lot Number",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackOutOperator1",
+                        "header": "Track Out Operator 1",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackOutOperator2",
+                        "header": "Track Out Operator 2",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackOutShift",
+                        "header": "Track Out Shift",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackOutComments",
+                        "header": "Track Out Comments",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackOutQty",
+                        "header": "Track Out Qty",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "scrapQty",
+                        "header": "Scrap Qty",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "firstPassQty",
+                        "header": "First Pass Qty",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "transferOutQty",
+                        "header": "Transfer Out Qty",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "trackOutTime",
+                        "header": "Track Out Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "toolingID",
+                        "header": "Tooling ID",
+                        "display": "none"
+                    }
+                ]
+            }
+        ],
+        "bomInformation": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "productionLotBOMID",
+                        "header": "productionLotBOMID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "productionLotNumber",
+                        "header": "Production Lot Number",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "actualBOMProduct",
+                        "header": "Actual BOM Product",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "actualBOMBatch",
+                        "header": "Actual BOM Batch",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ],
+        "defectInformation": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "productionLotRouteID",
+                        "header": "productionLotRouteID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "productionLotNumber",
+                        "header": "Production Lot Number",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "defectID",
+                        "header": "defectID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "defectCode",
+                        "header": "Defect Code",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "defectQty",
+                        "header": "Defect Qty",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ],
+        "edcInformation": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "productionLotRouteID",
+                        "header": "productionLotRouteID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "productionLotNumber",
+                        "header": "Production Lot Number",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "edcParameterID",
+                        "header": "edcParameterID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "edcParameterCode",
+                        "header": "EDC Parameter Code",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "edcParameterValue",
+                        "header": "EDC Parameter Value",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ],
+        "holdLotHistoryInformation": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "productionLotNumber",
+                        "header": "Production Lot Number",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "preHoldCode",
+                        "header": "Pre Hold Code",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "newHoldCode",
+                        "header": "New Hold Code",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "preHoldToDept",
+                        "header": "Pre Hold To Dept",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "newHoldToDept",
+                        "header": "New Hold To Dept",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "changeComments",
+                        "header": "Change Comments",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "createdBy",
+                        "header": "Created By",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "createdTime",
+                        "header": "Created Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    }
+                ]
+            }
+        ],
+        "releaseLotHistoryInformation": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "nonConformReleaseID",
+                        "header": "nonConformReleaseID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "productionLotNumber",
+                        "header": "Production Lot Number",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "releaseCodeID",
+                        "header": "Release Code ID",
+                        "display": "none"
+                    },
+                    {
+                        "field": "rootCause",
+                        "header": "Root Cause",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "disposeAnalysis",
+                        "header": "Dispose Analysis",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "disposeComments",
+                        "header": "Dispose Comments",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "qaBuyoffComments",
+                        "header": "QA Buyoff Comments",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "qaBuyoffBy",
+                        "header": "QA Buyoff By",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "qaBuyoffTime",
+                        "header": "QA Buyoff Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "qaBuyoffResult",
+                        "header": "QA Buyoff Result",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "releaseCode",
+                        "header": "Release Code",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "releaseCodeDesc",
+                        "header": "Release Code Desc",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "createdBy",
+                        "header": "Created By",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "createdTime",
+                        "header": "Created Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "modifiedBy",
+                        "header": "Modified By",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "modifiedTime",
+                        "header": "Modified Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    }
+                ]
+            }
+        ],
+        "faiReportInformation": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "faiNumber",
+                        "header": "FAI Number",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "route",
+                        "header": "Route",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "product",
+                        "header": "Product",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "status",
+                        "header": "Status",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "availableLotRoutes",
+                        "header": "Available Lot Routes",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "productionLotRoutes",
+                        "header": "Production Lot Routes",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "qiParameters",
+                        "header": "QI Parameters",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "createdBy",
+                        "header": "Created By",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "createdTime",
+                        "header": "Created Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "modifiedBy",
+                        "header": "Modified By",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "modifiedTime",
+                        "header": "Modified Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    }
+                ]
+            }
+        ],
+        "fqaReportInformation": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "fqaNumber",
+                        "header": "FQA Number",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "product",
+                        "header": "Product",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "status",
+                        "header": "Status",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "statusText",
+                        "header": "Status Text",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "isFirstSave",
+                        "header": "Is First Save",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "holdLotNumbers",
+                        "header": "Hold Lot Numbers",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "availableLots",
+                        "header": "Available Lots",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "productionLots",
+                        "header": "Production Lots",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "fqaInfos",
+                        "header": "FQA Infos",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "qiParameters",
+                        "header": "QI Parameters",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "createdBy",
+                        "header": "Created By",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "createdTime",
+                        "header": "Created Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    },
+                    {
+                        "field": "modifiedBy",
+                        "header": "Modified By",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "modifiedTime",
+                        "header": "Modified Time",
+                        "display": "table-cell",
+                        "type": "date"
+                    }
+                ]
+            }
+        ],
+        "qaRelease": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "productionLotNumber",
+                        "header": "Production Lot Number",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "product",
+                        "header": "Product",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "description",
+                        "header": "Description",
+                        "display": "none"
+                    },
+                    {
+                        "field": "prodVersion",
+                        "header": "Production Version",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "productionLine",
+                        "header": "Production Line",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "quantity",
+                        "header": "Quantity",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "outputQuantity",
+                        "header": "Output Quantity",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "releaseDate",
+                        "header": "Release Date",
+                        "display": "table-cell",
+                        "type": "shortDate"
+                    },
+                    {
+                        "field": "qaStatus",
+                        "header": "QA Status",
+                        "display": "table-cell"
+                    }
+                ]
+            }
+        ],
+        "siteCalendar": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "date",
+                        "header": "Date",
+                        "display": "table-cell",
+                        "type": "date",
+                        "isRequired": true
+                    },
+                    {
+                        "field": "week",
+                        "header": "Week",
+                        "display": "table-cell",
+                        "isRequired": true,
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "month",
+                        "header": "Month",
+                        "display": "table-cell",
+                        "isRequired": true,
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "year",
+                        "header": "Year",
+                        "display": "table-cell",
+                        "isRequired": true,
+                        "type": "list",
+                        "options": []
+                    }
+                ]
+            }
+        ],
+        "productExtra": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "productID",
+                        "header": "Product Id",
+                        "display": "table-cell",
+                        "type": "noValidate",
+                        "isDisabled": true
+                    },
+                    {
+                        "field": "product",
+                        "header": "Product",
+                        "display": "table-cell",
+                        "isDisabled": true,
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "qiPlanCode",
+                        "header": "QI Plan Code",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "productGroup",
+                        "header": "Product Group",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "baseQty",
+                        "header": "Base Qty",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "lowYieldLimit",
+                        "header": "Low Yield Limit",
+                        "display": "table-cell",
+                        "type": "number"
+                    }
+                ]
+            }
+        ],
+        "routeExtra": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "routeID",
+                        "header": "Route Id",
+                        "display": "table-cell",
+                        "type": "noValidate",
+                        "isDisabled": true
+                    },
+                    {
+                        "field": "product",
+                        "header": "Product",
+                        "display": "table-cell",
+                        "isDisabled": true,
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "prodVersion",
+                        "header": "Prod Version",
+                        "display": "table-cell",
+                        "isDisabled": true,
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "routeOperNumber",
+                        "header": "Route Operation Number",
+                        "display": "table-cell",
+                        "isDisabled": true,
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "routeDescription",
+                        "header": "Route Description",
+                        "display": "table-cell",
+                        "isDisabled": true,
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "operationDescriptionLoc",
+                        "header": "Operation Description Loc",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "defectsGroupCode",
+                        "header": "Defect Group Code",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "edcPlanCode",
+                        "header": "EDC Plan Code",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "qiPlanCode",
+                        "header": "QI Plan Code",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "recipe",
+                        "header": "Recipe",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "sop",
+                        "header": "SOP",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "resourceType",
+                        "header": "Resource Type",
+                        "display": "table-cell"
+                    },
+                    {
+                        "field": "toolingGroupName",
+                        "header": "Tooling Group Name",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    },
+                    {
+                        "field": "lowYieldLimit",
+                        "header": "Low Yield Limit",
+                        "display": "table-cell",
+                        "type": "number"
+                    },
+                    {
+                        "field": "isNeedSkip",
+                        "header": "Is Need Skip",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isRequired": true
+                    },
+                    {
+                        "field": "isFastTrackInOut",
+                        "header": "Is FastTrack InOut",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isRequired": true
+                    },
+                    {
+                        "field": "isNeedFAI",
+                        "header": "Is Need FAI",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": [],
+                        "isRequired": true
+                    }
+                ]
+            }
+        ],
+        "bomExtra": [
+            {
+                "columns": [
+                    {
+                        "field": "id",
+                        "header": "Id",
+                        "display": "none"
+                    },
+                    {
+                        "field": "bomid",
+                        "header": "BOM Id",
+                        "display": "table-cell",
+                        "type": "noValidate",
+                        "isDisabled": true
+                    },
+                    {
+                        "field": "product",
+                        "header": "Product",
+                        "display": "table-cell",
+                        "isDisabled": true,
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "prodVersion",
+                        "header": "Prod Version",
+                        "display": "table-cell",
+                        "isDisabled": true,
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "routeOperNumber",
+                        "header": "Route Operation Number",
+                        "display": "table-cell",
+                        "isDisabled": true,
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "routeDescription",
+                        "header": "Route Description",
+                        "display": "table-cell",
+                        "isDisabled": true,
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "bomProductName",
+                        "header": "BOM Product Name",
+                        "display": "table-cell",
+                        "isDisabled": true,
+                        "type": "noValidate"
+                    },
+                    {
+                        "field": "isNeedValidation",
+                        "header": "Is Need Validation",
+                        "display": "table-cell",
+                        "type": "list",
+                        "options": []
+                    }
+                ]
+            }
+        ]
+    }
+]

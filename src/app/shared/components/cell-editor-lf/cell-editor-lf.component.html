@@ -1,0 +1,119 @@
+<!-- cell editor options for editing row -->
+<div  *ngIf="action=='edit'" [ngSwitch]="col.type">
+
+  <div *ngSwitchCase="'date'" [ngStyle]="{'text-align': col?.align!=null?col?.align:'center'}">
+      <p-cellEditor>
+        <ng-template pTemplate="input">
+          <p-calendar [(ngModel)]="_rowData[col.field]" *ngIf="col?.editable==true" [readonlyInput]="true" required="col.required" [inputStyle]="{'width': '100%','text-align': col?.align!=null?col?.align:'center'}" [panelStyle]="{'width': '350px'}">
+          </p-calendar>
+          <div *ngIf="col?.editable!=true" [ngStyle]="{'color': 'gray'}">
+              {{_rowData[col.field]|date:col.format==null?'yyyy/MM/dd':col.format}}
+          </div>
+        </ng-template>
+        <ng-template pTemplate="output">
+          {{_rowData[col.field]|date:col.format==null?'yyyy/MM/dd':col.format}}
+        </ng-template>
+      </p-cellEditor>
+      
+  </div>
+
+  <!-- <div *ngSwitchCase="'list'" class="w-100" [ngStyle]="{'text-align': col?.align!=null?col?.align:'center'}">
+    <p-cellEditor>
+      <ng-template pTemplate="input">
+        <p-dropdown [options]="col.options" [(ngModel)]="_rowData[col.field]" [style]="{'width':'100% !important'}">
+        </p-dropdown>
+      </ng-template>
+      <ng-template pTemplate="output">
+        {{_rowData[col.field]}}
+      </ng-template>
+    </p-cellEditor>
+  </div>
+
+  <div *ngSwitchCase="'range'">
+    <p-cellEditor>
+      <ng-template pTemplate="input">
+        <input #number pInputText type="number" placeholder="Enter {{col.header}}" [(ngModel)]="_rowData[col.field]"
+          [min]="col.min" [max]="col.max" (keyup)="validateNumber($event)" (change)="validateNumber($event)"
+          class="form-control">
+        <span *ngIf="showError" class="error-message">Please enter numeric values only</span>
+      </ng-template>
+      <ng-template pTemplate="output">
+        {{_rowData[col.field]}}
+      </ng-template>
+    </p-cellEditor>
+  </div> -->
+
+  <!-- <div *ngSwitchCase="'number'" [ngStyle]="{'text-align': col?.align!=null?col?.align:'center'}">
+    <p-cellEditor>
+      <ng-template pTemplate="input">
+        <input #number pInputText placeholder="Enter {{col.header}}" [(ngModel)]="_rowData[col.field]"
+           class="form-control" > 
+      </ng-template>
+      <ng-template pTemplate="output">
+        {{_rowData[col.field]}}
+      </ng-template>
+    </p-cellEditor>
+  </div> -->
+
+  <!-- <div *ngSwitchCase="'code'" [ngStyle]="{'text-align': col?.align!=null?col?.align:'center'}">
+    <p-cellEditor>
+      <ng-template pTemplate="input">
+        <input #code type="text" required (change)="validateCode($event)" (keyup)="validateCode($event)"
+          [(ngModel)]="_rowData[col.field]" class="form-control">
+        <span *ngIf="showError" class="error-message">Please enter allowed characters only : alphabets and
+          numbers</span>
+      </ng-template>
+      <ng-template pTemplate="output">
+        {{_rowData[col.field]}}
+      </ng-template>
+    </p-cellEditor>
+  </div> -->
+  <!-- (keyup)="validateText($event)" -->
+  <div *ngSwitchDefault [ngStyle]="{'text-align': col?.align!=null?col?.align:'center'}">
+      <p-cellEditor>
+        <ng-template pTemplate="input">
+          <input pInputText [type]="col?.subtype!=null?col.subtype:'text'" 
+          [(ngModel)]="_rowData[col.field]" *ngIf="col?.editable==true" 
+          required="col.required" class="form-control" [ngStyle]="{'text-align': col?.align!=null?col?.align:'center'}">
+          <div *ngIf="col?.editable!=true" [ngStyle]="{'color': 'gray'}">
+            {{_rowData[col.field]}}
+          </div>
+        </ng-template>
+        <ng-template pTemplate="output">
+          {{_rowData[col.field]}}
+        </ng-template>
+      </p-cellEditor>
+  </div>
+</div>
+
+<!-- template for adding new row -->
+<div *ngIf="action=='add'" [ngSwitch]="col.type">
+  <div *ngSwitchCase="'date'">
+      <p-calendar [(ngModel)]="_rowData[col.field]" [inputStyle]="{'width': '100%','text-align': col?.align!=null?col?.align:'center'}" [panelStyle]="{'width': '350px'}">
+        </p-calendar>
+  </div>
+  <!-- <div *ngSwitchCase="'list'">
+    <p-dropdown [options]="col.options" [(ngModel)]="_rowData[col.field]" [style]="{'width':'100%'}">
+    </p-dropdown>
+  </div> -->
+  <!-- <div *ngSwitchCase="'number'">
+    <input pInputText placeholder="Enter {{col.header}}" [(ngModel)]="_rowData[col.field]" class="form-control"
+      (change)="validateNumber($event)" (keyup)="validateNumber($event)">
+    <span *ngIf="showError" class="error-message">Please enter numeric values only</span>
+  </div> -->
+  <!-- <div *ngSwitchCase="'code'">
+    <input pInputText type="text" (change)="validateCode($event)" (keyup)="validateCode($event)"
+      placeholder="Enter {{col.header}}" [(ngModel)]="_rowData[col.field]" class="form-control">
+    <span *ngIf="showError" class="error-message">Please enter allowed characters only : alphabets and numbers</span>
+  </div> -->
+  <div *ngSwitchDefault>
+      <input  pInputText [type]="col?.subtype!=null?col.subtype:'text'" [(ngModel)]="_rowData[col.field]" class="form-control" [ngStyle]="{'text-align': col?.align!=null?col?.align:'center'}">
+  </div>
+</div> 
+
+
+
+<!-- pattern="[a-zA-Z][a-zA-Z0-9-_]+" -->
+<!-- <span class="warning">warning</span> -->
+<!-- (keyup)="validateRange(range)" -->
+<!-- [min]="col.min" [max]="col.max" -->

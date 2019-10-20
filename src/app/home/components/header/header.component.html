@@ -1,0 +1,56 @@
+<nav class="w-100 h-25 pl-3">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- div block to display sidebar toggle option and application logo -->
+            <div class="header-container" style="width:10% !important">
+                <div class="logo-container">
+                    <a class=" w-100 h-100 mr-3" href="#" (click)="toggle()" title="Toggle Sidebar">
+                        <nb-icon icon="menu-2-outline" style="color:#d2e7da"></nb-icon>
+                    </a>
+                </div>
+            </div>
+            <div class="header-container d-flex flex-row justify-content-end" style="width:70% !important">
+                <!-- div block to display application name -->
+                <div class="logo-text d-flex flex-row w-100 justify-content-start">
+                    <span>LAM Automation Processing System</span>
+                </div>
+                <!-- div block to display search option -->
+                <div class="contact-us">
+                    <a href="#">
+                        <i class="fa fa-search header-text">
+                        </i>
+                    </a>
+                </div>
+                <!-- div block to display contact us -->
+                <div class="contact-us">
+                    <a href="#">
+                        <span class="header-text">Contact Us</span>
+                    </a>
+                </div>
+                <!-- div block to display User profile with image and logout options -->
+                <div class="user-container">
+                    <div class="user-picture image">
+                        <img src="assets/images/nick.png" class="w-100 h-100 rounded">
+                    </div>
+                    <div class="d-flex px-2 align-items-center">
+                        <div class="user-name" style="cursor: pointer;" (click)="menu.toggle($event)" label="Show">
+                            {{this.storageService.getItem("userName")}}</div>
+                        <div>
+                            <p-menu #menu [popup]="true" [model]="items"></p-menu>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row header-second-line">
+            <div class="header-container d-flex flex-row justify-content-start" style="width:70% !important">
+                <!-- div block to display application name -->
+                <div class="logo-text d-flex flex-row w-50 justify-content-start">
+                    <div class="">
+                        <img src="assets/images/logo.png" class="w-100 h-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

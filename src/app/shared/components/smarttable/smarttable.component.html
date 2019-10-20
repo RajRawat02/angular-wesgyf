@@ -1,0 +1,81 @@
+<div class="container-fluid px-0" *ngIf="header && header.columns && _source">
+
+    <!-- primeng smart table with add, edit, delete row functionalities, lazy loading and pagination -->
+    <p-table #dt class="shadow-lg mt-3" [columns]="header.columns" [value]="_source" dataKey="id" editMode="row"
+        [paginator]="true" [rows]="rows" [rowsPerPageOptions]="[10,15,20,25,30]" [lazy]="lazy"
+        [totalRecords]="totalRecords" (onLazyLoad)="loadLazy($event)" [(first)]="first"
+        [exportFunction]="exportFunction">
+
+        <!-- smart table header starts -->
+        <ng-template pTemplate="header" let-columns>
+            <!-- header row to display column headers -->
+            <tr class="lf-background">
+                <th style="width:6em">
+                    Actions
+                </th>
+                <th *ngFor="let col of columns" [ngStyle]="{'display': col.display}">
+                    {{col.header}}
+                </th>
+            </tr>
+            <!-- header row to show add new row option and input elements for filtering -->
+            <tr>
+                <!-- column to show add new row action and search icon if lazy loading is enabled -->
+                <th style="text-align: center">
+                    <button [disabled]="disableAdd || (adding || childAdding)" pButton type="button" icon="pi pi-plus"
+                        title="Add" class="ui-button-success" style="margin-right: .5em;"
+                        (click)="onRowAddInit()"></button>
+                    <button *ngIf="lazy" pButton type="button" icon="pi pi-search" class="ui-button-secondary"
+                        title="Search" (click)="onSearch()"></button>
+                </th>
+                <!-- column to show input elements to filter data for lazy and normal loading -->
+                <th *ngFor="let col of columns" [ngStyle]="{'display': col.display}">
+                    <input *ngIf="!lazy" pInputText style="width: 100%" type="text" placeholder="{{col.header}}"
+                        (input)="dt.filter($event.target.value, col.field, 'contains')">
+                    <input *ngIf="lazy" pInputText style="width: 100%" type="text" placeholder="{{col.header}}"
+                        [(ngModel)]="searchRowData[col.field]" (keyup)="triggerSearch($event)">
+                </th>
+            </tr>
+            <!-- header row to show input elements for adding a new row with Save and Cancel actions -->
+            <tr *ngIf="adding">
+                <th style="text-align: center">
+                    <button pButton type="button" icon="pi pi-check" class="ui-button-secondary"
+                        style="margin-right: .5em" (click)="onRowAddSave($event)" title="Save"></button>
+                    <button pButton type="button" icon="pi pi-times" class="ui-button-secondary"
+                        (click)="onRowAddCancel($event)" title="Cancel"></button>
+                </th>
+                <th *ngFor="let col of columns" [ngStyle]="{'display': col.display}">
+                    <app-cell-editor [action]="'add'" [col]="col" [rowData]="newRowData"></app-cell-editor>
+                </th>
+            </tr>
+        </ng-template>
+        <!-- smart table header ends -->
+
+        <!-- smart table body starts -->
+        <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-editing="editing" let-ri="rowIndex"
+            let-columns="columns">
+            <!-- highlighting current row if in edit mode -->
+            <tr [pEditableRow]="rowData" [ngClass]="(editing) ? 'ui-state-highlight' : ''">
+                <!-- first column to show actions like edit and delete, if in edit mode - save and cancel will be visible -->
+                <td style="text-align:center">
+                    <button *ngIf="!editing" [disabled]="disableEdit" pButton type="button" pInitEditableRow
+                        icon="pi pi-pencil" title="Edit" class="ui-button-secondary" style="margin-right: .5em"
+                        (click)="onRowEditInit(rowData)"></button>
+                    <button *ngIf="editing" pButton type="button" pSaveEditableRow icon="pi pi-check" title="Save"
+                        class="ui-button-secondary" style="margin-right: .5em"
+                        (click)="onRowEditSave(rowData, $event)"></button>
+                    <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times" title="Cancel"
+                        class="ui-button-secondary" (click)="onRowEditCancel(rowData, ri)"></button>
+                    <button *ngIf="!editing" [disabled]="disableDelete || rowData['isReserved']" pButton type="button"
+                        icon="pi pi-trash" class="ui-button-secondary" (click)="onRowDeleteInit(rowData)"
+                        title="Delete"></button>
+                </td>
+                <!-- looping through all columns to display column data using cell-edior -->
+                <td *ngFor="let col of columns" [ngStyle]="{'display': col.display}">
+                    <app-cell-editor [action]="'edit'" [col]="col" [rowData]="rowData"></app-cell-editor>
+                </td>
+            </tr>
+        </ng-template>
+        <!-- smart table body ends -->
+
+    </p-table>
+</div>

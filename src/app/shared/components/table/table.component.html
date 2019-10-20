@@ -1,0 +1,178 @@
+<div class="container-fluid px-0" *ngIf="_columns && _data">
+
+    <!-- primeng table with row selection mode, lazy loading and pagination -->
+    <p-table #dt class="shadow-lg mt-3" [columns]="_columns" [value]="_data" [(selection)]="selectedRows" dataKey="id"
+        [selectionMode]="selectionMode" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)"
+        [paginator]="true" [scrollable]="true" [rows]="rows" [rowsPerPageOptions]="[5,10,15,20,25,30]" [lazy]="lazy"
+        [totalRecords]="totalRecords" (onLazyLoad)="loadLazy($event)" [(first)]="first">
+
+        <!-- table header starts -->
+        <ng-template pTemplate="header" let-columns>
+            <!-- header row to display column headers -->
+            <tr class="lf-background">
+                <th *ngFor="let col of columns"
+                    [ngStyle]="{'display': col.display,'width': col?.width!=null?col?.width:auto}">
+                    {{col.header | translate}}
+                </th>
+            </tr>
+            <!-- header row to show filters with diff filtering options for each column type -->
+            <tr>
+                <th *ngFor="let col of columns"
+                    [ngStyle]="{'display': col.display,'width': col?.width!=null?col?.width:auto}">
+
+                    <!-- custom date filters - start -->
+                    <div *ngIf="_columns && _data">
+                        <div [ngSwitch]="col.type">
+
+                            <!-- div block to provide filter for column type date -->
+                            <div *ngSwitchCase="'date'">
+                                <p-calendar #cal *ngIf="!lazy" appendTo="body" selectionMode="range" hourFormat="24"
+                                    [(ngModel)]="dateFilters" [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}"
+                                    hideOnDateTimeSelect="true" [showSeconds]="true"
+                                    (onClose)="filterDate($event,col.field, 'dateRangeFilter',dateFilters)"
+                                    (ngModelChange)="filterDate($event,col.field, 'dateRangeFilter',dateFilters)"
+                                    dateFormat="dd/mm/yy" placeholder="{{col.header | translate}}">
+                                    <p-footer><button style="float: right" pButton label="Done"
+                                            (click)="cal.overlayVisible = false"></button>
+                                    </p-footer>
+                                </p-calendar>
+                                <p-calendar #cal *ngIf="lazy" appendTo="body" selectionMode="range" hourFormat="24"
+                                    [(ngModel)]="dateFilters" [showSeconds]="true" [style]="{'width':'100%'}"
+                                    [inputStyle]="{'width':'100%'}" [showSeconds]="true"
+                                    (onClose)="triggerSearchForDate($event, dateFilters,col.field)"
+                                    (ngModelChange)="onClearDate($event)" dateFormat="dd/mm/yy"
+                                    placeholder="{{col.header | translate}}"
+                                    (keyup)="triggerSearchForDateOnEnter($event,dateFilters,col.field )"
+                                    (click)="onClick($event)">
+                                    <p-footer><button style="float: right" pButton label="Done"
+                                            (click)="cal.overlayVisible = false"></button>
+                                    </p-footer>
+                                </p-calendar>
+                            </div>
+
+                            <!-- div block to provide filter for column type shortDate -->
+                            <div *ngSwitchCase="'shortDate'">
+                                <p-calendar #cal *ngIf="!lazy" appendTo="body" selectionMode="range"
+                                    [(ngModel)]="dateFilters" [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}"
+                                    (onClose)="filterDate($event,col.field, 'dateRangeFilter')" dateFormat="mm/dd/yy"
+                                    placeholder="{{col.header | translate}}">
+                                    <p-footer><button style="float: right" pButton label="Done"
+                                            (click)="cal.overlayVisible = false"></button>
+                                    </p-footer>
+                                </p-calendar>
+                                <p-calendar #cal *ngIf="lazy" appendTo="body" selectionMode="range"
+                                    [(ngModel)]="dateFilters" [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}"
+                                    (onClose)="triggerSearchForDate($event,dateFilters, col.field)"
+                                    (keyup)="triggerSearchForDateOnEnter($event,dateFilters,col.field )"
+                                    dateFormat="mm/dd/yy" placeholder="{{col.header | translate}}" [showSeconds]="true">
+                                    <p-footer><button style="float: right" pButton label="Done"
+                                            (click)="cal.overlayVisible = false"></button>
+                                    </p-footer>
+                                </p-calendar>
+                            </div>
+                            <!-- div block to provide filter for column type time -->
+                            <div *ngSwitchCase="'time'">
+                                <p-calendar appendTo="body" selectionMode="range" [timeOnly]=" true"
+                                    placeholder="{{col.header| translate}}" [showSeconds]="true">
+                                </p-calendar>
+                            </div>
+
+                            <!-- div block to provide filter for column type list -->
+                            <div *ngSwitchCase="'list'" class="w-100">
+                                <p-dropdown *ngIf="lazy" appendTo="body" [style]="{'min-width':'100%', 'width':'100%'}"
+                                    placeholder="{{col.header | translate}}" [options]="col.options"
+                                    (onChange)="filterStatus($event)" resetFilterOnHide="true"
+                                    [(ngModel)]="searchRowData[col.field]" filter="true" [showClear]="true">
+                                </p-dropdown>
+                                <p-dropdown *ngIf="!lazy" appendTo="body" [style]="{'min-width':'100%', 'width':'100%'}"
+                                    placeholder="{{col.header | translate}}" [options]="col.options"
+                                    (input)="dt.filter($event.target.value, col.field, 'contains')"
+                                    resetFilterOnHide="true" filter="true" [showClear]="true">
+                                </p-dropdown>
+                            </div>
+
+                            <!-- div block to provide filter for column type checkbox -->
+                            <div *ngSwitchCase="'checkbox'" class="w-100">
+                                <p-dropdown *ngIf="lazy" appendTo="body" [style]="{'min-width':'100%', 'width':'100%'}"
+                                    placeholder="{{col.header | translate}}" [options]="col.options"
+                                    (onChange)="filterStatus($event)" resetFilterOnHide="true"
+                                    [(ngModel)]="searchRowData[col.field]" filter="true" [showClear]="true">
+                                </p-dropdown>
+                                <input *ngIf="!lazy" pInputText style="width: 100%" type="text"
+                                    placeholder="{{col.header | translate}}" [disabled]="col.disableFiltering"
+                                    (input)="dt.filter($event.target.value, col.field, 'contains')">
+                            </div>
+
+                            <!-- default div block -->
+                            <div *ngSwitchDefault>
+                                <input *ngIf="!lazy" pInputText style="width: 100%" type="text"
+                                    placeholder="{{col.header | translate}}" [disabled]="col.disableFiltering"
+                                    (input)="dt.filter($event.target.value, col.field, 'contains')">
+                                <input *ngIf="lazy" pInputText style="width: 100%" type="text"
+                                    placeholder="{{col.header | translate}}" [(ngModel)]="searchRowData[col.field]"
+                                    (keyup)="triggerSearch($event)" [disabled]="col.disableFiltering">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- custom date filter - end -->
+
+                </th>
+            </tr>
+        </ng-template>
+        <!-- table header ends -->
+
+        <!-- table body starts -->
+        <ng-template pTemplate="body" let-source let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData">
+                <!-- looping through all columns to display column data based on column type -->
+                <td *ngFor="let col of columns"
+                    [ngStyle]="{'display': col.display,'width': col?.width!=null?col?.width:auto}">
+                    <div [ngSwitch]="col.type">
+
+                        <!-- div block to show data for column type checkbox -->
+                        <div *ngSwitchCase="'checkbox'" class="pl-2">
+                            <p-checkbox [disabled]="true" [(ngModel)]="rowData[col.field]" binary="true">
+                            </p-checkbox>
+                        </div>
+
+                        <!-- div block to show data for column type shortDate -->
+                        <div *ngSwitchCase="'shortDate'" class="pl-2">
+                            {{source[col.field] | date: 'MM/dd/yyyy'}}
+                        </div>
+
+                        <!-- div block to show data for column type date -->
+                        <div *ngSwitchCase="'date'">
+                            {{source[col.field] | date: 'yyyy-MM-dd HH:mm:ss'}}
+                        </div>
+
+                        <!-- div block to show data for column type link -->
+                        <div *ngSwitchCase="'link'">
+                            <p *ngFor="let item of source[col.field]">
+                                <a [routerLink]="" (click)="followLink(item)">{{item}}</a>
+                            </p>
+                        </div>
+
+                        <!-- div block to show data for column type downloadLink -->
+                        <div *ngSwitchCase="'downloadLink'" class="pl-2 text-center">
+                            <a [routerLink]="" *ngIf="source[col.field]" (click)="followLink(source[col.field])">
+                                {{source[col.fileName]}} </a>
+                        </div>
+
+                        <!-- div block to show data for column type number -->
+                        <div *ngSwitchCase="'number'" class="px-2" style="text-align: center;"
+                            [ngStyle]="{'background-color':source[col.colorField]}">
+                            {{source[col.field]}}
+                        </div>
+
+                        <!-- default div block to show data -->
+                        <div *ngSwitchDefault class="pl-2" [ngStyle]="{'background-color':source[col.colorField]}">
+                            {{source[col.field]}}
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+        <!-- table body ends -->
+
+    </p-table>
+</div>

@@ -1,0 +1,270 @@
+@import "themes";
+@import "~@nebular/theme/styles/globals";
+@import "~nebular-icons/css/nebular-icons.css";
+@import "~eva-icons/style/eva-icons.css";
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~@angular/material/theming";
+
+@include nb-install() {
+  @include nb-theme-global();
+}
+
+/* open-sans-regular - latin */
+// @font-face {
+//   font-family: 'Open Sans';
+//   font-style: normal;
+//   font-weight: 400;
+//   src: url('../fonts/open-sans-v17-latin-regular.eot'); /* IE9 Compat Modes */
+//   src: local('Open Sans Regular'), local('OpenSans-Regular'),
+//        url('../fonts/open-sans-v17-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//        url('../fonts/open-sans-v17-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+//        url('../fonts/open-sans-v17-latin-regular.woff') format('woff'), /* Modern Browsers */
+//        url('../fonts/open-sans-v17-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+//        url('../fonts/open-sans-v17-latin-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
+// }
+
+$lf-background: #00548b;
+
+//to enable content copy in application
+body {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+//---------------- common css changes for nebular packages starts --------------------
+::-webkit-scrollbar {
+  width: 1em !important;
+  height: 1em !important;
+}
+::-webkit-scrollbar-thumb {
+  background: darkgray;
+}
+​ .nb-theme-default nb-sidebar nb-menu {
+  border-bottom: 1px solid lightgrey;
+}
+.nb-theme-default nb-layout .layout .layout-container .content .columns nb-layout-column {
+  padding: 1.5rem 1rem 1rem 1rem !important;
+}
+.nb-theme-default nb-menu .menu-item .menu-icon {
+  font-size: 1.9rem !important;
+}
+
+// .nb-theme-default nb-menu .menu-group,
+// .nb-theme-default nb-menu .menu-item a {
+//   font-family: Open Sans, sans-serif !important;
+//   font-size: 0.8125rem !important;
+//   font-weight: 500 !important;
+// }
+//---------------- common css changes for nebular packages ends --------------------
+
+//---------------- common css changes for table templates starts --------------------
+body .ui-button.ui-button-icon-only {
+  padding: 0;
+}
+body .ui-table .ui-table-tbody > tr {
+  height: 2em !important;
+}
+body .ui-table .ui-table-tbody > tr > td {
+  padding: 0.2em 0.2em !important;
+}
+body .ui-table .ui-table-thead > tr {
+  height: 3em;
+}
+body .ui-table .ui-table-thead > tr > th {
+  padding: 0.2em 0.2em !important;
+  text-align: center;
+  vertical-align: middle;
+  background-color: transparent !important;
+  color: inherit !important;
+}
+body .ui-picklist .ui-picklist-caption {
+  background: #00548b !important;
+  color: white !important;
+}
+.ui-picklist-listwrapper-nocontrols {
+  width: 35% !important;
+}
+::ng-deep .ui-treetable-scrollable-header-box {
+  margin-right: 0px !important;
+}
+//dropdown label width
+::ng-deep body .ui-dropdown.ui-dropdown-clearable .ui-dropdown-label {
+  text-overflow: ellipsis !important;
+}
+//---------------- common css changes for table templates ends --------------------
+
+//---------------- global css classes for littelfuse starts -----------------------
+// .lf-background {
+//   background: white !important;
+//   color: black !important;
+// }
+.lf-background {
+  background:#00548b !important;
+  color: white !important;
+}
+.required {
+  color: red;
+}
+//---------------- global css classes for littelfuse ends -----------------------
+
+//---------------- common css changes for primeNg controls starts --------------------
+.ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active .ui-menuitem-link .ui-menuitem-icon {
+  font-size:x-large!important;
+ }
+.ui-dialog .ui-dialog-titlebar {
+  //background-color: #6495ed !important;
+  // background-color: #007e3a !important;
+  //color: white !important;
+  font-size: medium;
+}
+.ui-dialog .ui-dialog-footer {
+  background-color: #f4f4f4 !important;
+}
+//.ui-dialog .ui-dialog-titlebar-icon span {
+//color: white !important;
+//}
+.ui-fieldset-legend {
+  border: 0px;
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
+  width: auto;
+  //font-weight: 500;
+}
+
+p-fieldset {
+  width: 100% !important;
+}
+
+.labelAlignRight{
+  text-align: right;
+}
+.labelInfoValue{
+  line-height: 1rem;
+}
+
+.error-highlight{
+  outline: none !important;
+  border:2px solid #FF0000!important;
+  box-shadow: 0 0 10px red;
+ } 
+
+ 
+//---------------- common css changes for primeNg controls ends --------------------
+
+//-----------------NBAuthComponent Remove Back Arrow ---------------------------
+.nb-theme-default nb-card-header { display: none !important; }
+
+
+//------------------change color of expand icon-----------------
+ ::ng-deep .nb-theme-default nb-menu .menu-item .expand-state{
+  color: black
+}
+
+
+
+//-------------------------commented code - to be deleted later -----------------
+
+// * {
+//   font-family: Open Sans, sans-serif !important;
+//   // font-size: 0.9375rem;
+//   // font-weight: normal !important;
+//   // line-height: 1.25rem;
+// }
+// @font-face {
+//   font-family: nebular;
+//   src: url("https://cdn.jsdelivr.net/npm/nebular-icons@1.1.0/fonts/nebular.eot?4ozerq");
+//   src: url("https://cdn.jsdelivr.net/npm/nebular-icons@1.1.0/fonts/nebular.eot?4ozerq#iefix")
+//       format("embedded-opentype"),
+//     url("https://cdn.jsdelivr.net/npm/nebular-icons@1.1.0/fonts/nebular.ttf?4ozerq") format("truetype"),
+//     url("https://cdn.jsdelivr.net/npm/nebular-icons@1.1.0/fonts/nebular.woff?4ozerq") format("woff"),
+//     url("https://cdn.jsdelivr.net/npm/nebular-icons@1.1.0/fonts/nebular.svg?4ozerq#nebular") format("svg");
+//   font-weight: small;
+//   font-style: small;
+// }
+
+// @import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+// @import "~eva-icons/style/eva-icons.css";
+// @import "~@angular/material/theming";
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+// $custom-typography: mat-typography-config(
+//   $font-family: "Roboto, monospace",
+//   $headline: mat-typography-level(32px, 48px, 700),
+//   $body-1: mat-typography-level(16px, 24px, 500)
+// );
+
+// div[class~="ui-tree"] {
+//   width: 100%;
+//   height: 100%;
+//   // min-height: 700px !important;
+//   // max-height: 700px !important;
+//   position: relative;
+//   padding: 0;
+//   margin: 0;
+//   border: none !important;
+//   background-color: #eef2f2;
+// }
+// ul[class~="ui-tree-container"] {
+//   margin: 0;
+//   padding: 0px;
+//   // min-height: 700px !important;
+//   // max-height: 700px !important;
+//   // min-height: calc(100vh- 4.25rem) !important;
+//   // max-height: calc(100vh- 4.25rem) !important;
+//   white-space: nowrap;
+//   overflow-y: scroll;
+//   overflow-x: scroll;
+//   border: none !important;
+// }
+
+// .nb-theme-default nb-card-header {
+//   display: none !important;
+// }
+// .nb-theme-default nb-sidebar .scrollable {
+//   // padding: 0 !important;
+//   padding-left: 0.7em !important;
+//   overflow-y: scroll;
+// }
+// .nb-theme-default nb-sidebar nb-menu {
+//   border-bottom: 1px solid lightgrey;
+//   font-family: Open Sans, sans-serif !important;
+//   font-size: 0.9375rem;
+//   font-weight: normal !important;
+// }
+// .nb-theme-default nb-menu .menu-item a {
+//   padding-left: 0;
+// }
+// .nb-theme-default nb-menu .menu-item > .menu-items > .menu-item a {
+//   padding-left: 0;
+// }
+// .nb-theme-default nb-menu .menu-item .menu-icon {
+//   width: auto;
+// }
+// .nb-theme-default nb-menu .menu-item .menu-title {
+//   font-weight: 500 !important;
+// }
+//   .nb-theme-default nb-menu .menu-item .menu-icon{
+//     width: 1.5rem !important;
+//   }
+//   :host >>> .menu-items .menu-item .menu-icon{
+//     font-size: 1.5rem !important;
+//     width: 1.5rem !important;
+// }
+
+// ::-webkit-scrollbar-button {
+//   background: transparent
+// }
+// ::-webkit-scrollbar-track-piece {
+//   background: white
+// }
+// ::-webkit-scrollbar-thumb {
+//   background: #363d3a;
+// }​
+// .nb-theme-default nb-layout ::-webkit-scrollbar {
+//   width: 5em;
+//   color: aqua
+// }

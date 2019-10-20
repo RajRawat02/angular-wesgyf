@@ -1,0 +1,33 @@
+<nb-layout>
+
+  <!-- ngx-admin layout header tag - to show header -->
+  <nb-layout-header fixed class="lf-background">
+    <app-header class="w-100"></app-header>
+  </nb-layout-header>
+
+  <!-- ngx-admin siderbar tag - to show all menu in sidebar -->
+  <nb-sidebar>
+    <app-menu></app-menu>
+  </nb-sidebar>
+
+  <!-- ngx-admin layout column tag - to show the actual content using angular framework routing -->
+  <nb-layout-column [nbSpinner]="spinnerService.isLoading" nbSpinnerSize="giant" nbSpinnerStatus="info"
+    class="colored-column-basic layout">
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+
+</nb-layout>
+
+<!-- container to show notification using notificaiton service -->
+<div toastContainer></div>
+
+<!-- styles for spinner -->
+<style>
+.nb-spinner-container{
+  background-color: transparent;
+}
+
+nb-spinner {
+    background-color: transparent;
+}
+</style>

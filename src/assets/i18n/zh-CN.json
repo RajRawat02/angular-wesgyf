@@ -1,0 +1,74 @@
+{
+    "demo.title": "Littelfuse MES系统",
+    "holdlot": {
+        "lotInfoTitle": "批次信息",
+        "scanInputLot": "扫描/输入批量生产 ＃",
+        "emptyMessage": "找不到输入数据的生产批记录.",
+        "productionLot": "生产批次＃",
+        "product": "产品",
+        "currentStep": "当前步骤",
+        "equipment": "设备",
+        "holdTitle": "保持",
+        "holdCode": "保持代码",
+        "description": "描述",
+        "comments": "评论",
+        "submit": "提交",
+        "department": "部门",
+        "status": "状态",
+        "ocapCode": "失控計劃行動",
+        "message": {
+            "success": "保持批次成功保存 ."
+        }
+    },
+    "lotinfo": {
+        "history": "历史",
+        "holdInfo": "保留/发布信息",
+        "changeHoldCode": "更改保留代码",
+        "releaseLot": "发行批次",
+        "qaReview": "質量保證 评论",
+        "export": "导出到 高强",
+        "message": {
+            "rework": "返工路线已成功保存.",
+            "holdCode" : "保持代码已成功更新.",
+            "qaReview" : "質量保證 审核详细信息已成功保存.",
+            "releaseCode": "发布代码已成功更新."
+        },
+        "releaseCode": "发行代码",
+        "dispositionSolution" : "处置解决方案",
+        "rootCause": "根本原因",
+        "newHoldCode": "新保留代码",
+        "result": "结果"
+    },
+
+    "print": "打印",
+    "cancel": "取消",
+    "submit": "提交",
+
+
+    "ColHdr Lot #": "批量 #",
+    "ColHdr Product": "产品",
+    "ColHdr Route": "路线",
+    "ColHdr Hold Code": "保持代码",
+    "ColHdr Hold Time": "保持时间",
+    "ColHdr Department": "部门",
+    "ColHdr Description": "描述",
+    "ColHdr Status": "状态",
+
+    "ColHdr Production Lot #": "生产批次＃",
+    "ColHdr Pre Hold Code": "预先保留代码",	
+    "ColHdr New Hold Code": "新保留代码",
+    "ColHdr Pre Hold To Dept": "部门前保留",
+    "ColHdr New Hold To Dept": "新部门保留",
+    "ColHdr Change Comments": "改变评论",
+    "ColHdr Modified By": "修改者",
+    "ColHdr Modified Time": "修改时间",
+
+    "ColHdr Release Code": "发行代码",
+    "ColHdr Root Cause" : "根本原因",
+    "ColHdr Dispose Analysis":	"处理分析",
+    "ColHdr Dispose Comments": "处理评论",	
+    "ColHdr QA BuyOff Result": "質量保證 买通 结果",	
+    "ColHdr BuyOff By": "买了",
+    "ColHdr BuyOff Comments": "买通 评论",
+    "ColHdr BuyOff Time": "买通 时间"
+}

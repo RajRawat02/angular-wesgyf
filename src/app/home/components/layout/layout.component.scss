@@ -1,0 +1,13 @@
+//layout css class to define dynamic height and width for layout column 
+.layout {
+  overflow-x: hidden;
+  overflow-y: scroll !important;
+  max-height: 90vh !important;
+  min-height: 80vh !important;
+}
+
+//setting background to transparent
+/deep/ .nb-theme-default nb-layout .layout nb-layout-header nav {
+  background: none;
+  padding: 0;
+}

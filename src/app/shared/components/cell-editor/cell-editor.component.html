@@ -1,0 +1,225 @@
+<!-- cell editor options for editing row based on column type -->
+<div class="pl-2" *ngIf="_action=='edit'" [ngSwitch]="col.type">
+
+  <!-- for column type time -->
+  <div *ngSwitchCase="'time'">
+    <p-cellEditor>
+      <ng-template pTemplate="input">
+        <p-calendar [(ngModel)]="rowData[col.field]" (ngModelChange)="onTimeSelect($event)" [timeOnly]=" true"
+          showButtonBar="true" [showSeconds]="true" [style]="{'width': '100%'}" style="width: 100%">
+        </p-calendar>
+      </ng-template>
+      <ng-template pTemplate="output">
+        {{rowData[col.field]}}
+      </ng-template>
+    </p-cellEditor>
+  </div>
+
+  <!-- for column type color picker -->
+  <div *ngSwitchCase="'colorPicker'" class="w-100 pr-1">
+    <p-cellEditor>
+      <ng-template pTemplate="input">
+        <p-colorPicker [(ngModel)]="rowData[col.field]" [style]="{'width': '100%'}" style="width: 100%"></p-colorPicker>
+      </ng-template>
+      <ng-template pTemplate="output">
+        <span class="d-flex w-100" [ngStyle]="{'background-color':rowData[col.field]}">
+          {{rowData[col.field]}}
+        </span>
+      </ng-template>
+    </p-cellEditor>
+  </div>
+
+  <!-- for column type date -->
+  <div *ngSwitchCase="'date'">
+    <p-cellEditor>
+      <ng-template pTemplate="input">
+        <p-calendar [(ngModel)]="rowData[col.field]" showButtonBar="true" appendTo="body" [style]="{'width': '100%'}"
+          style="width: 100%">
+        </p-calendar>
+      </ng-template>
+      <ng-template pTemplate="output">
+        {{rowData[col.field] | date: 'MM/dd/yyyy'}}
+      </ng-template>
+    </p-cellEditor>
+  </div>
+
+  <!-- for column type list -->
+  <div *ngSwitchCase="'list'" class="w-100">
+    <p-cellEditor>
+      <ng-template pTemplate="input">
+        <p-dropdown [options]="col.options" [disabled]="col.isDisabled" [(ngModel)]="rowData[col.field]"
+          [style]="{'width':'100% !important'}">
+        </p-dropdown>
+      </ng-template>
+      <ng-template pTemplate="output">
+        {{rowData[col.field]}}
+      </ng-template>
+    </p-cellEditor>
+  </div>
+
+  <!-- for column type range -->
+  <div *ngSwitchCase="'range'">
+    <p-cellEditor>
+      <ng-template pTemplate="input">
+        <input #number pInputText type="number" placeholder="Enter {{col.header}}" [(ngModel)]="rowData[col.field]"
+          [min]="col.min" [max]="col.max" (keyup)="validateNumber($event)" (change)="validateNumber($event)"
+          class="form-control border">
+        <span *ngIf="showError" class="error-message">Please enter numeric values only</span>
+        <span *ngIf="isMandatory" class="error-message"> This field can not be left blank</span>
+      </ng-template>
+      <ng-template pTemplate="output">
+        {{rowData[col.field]}}
+      </ng-template>
+    </p-cellEditor>
+  </div>
+
+  <!-- for column type number -->
+  <div *ngSwitchCase="'number'" style="text-align: center;">
+    <p-cellEditor>
+      <ng-template pTemplate="input">
+        <input #number pInputText placeholder="Enter {{col.header}}" [(ngModel)]="rowData[col.field]"
+          class="form-control border" (keyup)="validateNumber($event)" (change)="validateNumber($event)">
+        <span *ngIf="showError" class="error-message">Please enter numeric values only</span>
+        <span *ngIf="isMandatory" class="error-message"> This field can not be left blank</span>
+      </ng-template>
+      <ng-template pTemplate="output">
+        {{rowData[col.field]}}
+      </ng-template>
+    </p-cellEditor>
+  </div>
+
+  <!-- for column type float -->
+  <div *ngSwitchCase="'float'" style="text-align: center;">
+    <p-cellEditor>
+      <ng-template pTemplate="input">
+        <input #Floatnumber pInputText placeholder="Enter {{col.header}}" [(ngModel)]="rowData[col.field]"
+          class="form-control border" (keyup)="validateFloatNumber($event)" (change)="validateFloatNumber($event)">
+        <span *ngIf="showError" class="error-message">Please enter numeric values only</span>
+        <span *ngIf="isMandatory" class="error-message"> This field can not be left blank</span>
+      </ng-template>
+      <ng-template pTemplate="output">
+        {{rowData[col.field]}}
+      </ng-template>
+    </p-cellEditor>
+  </div>
+
+  <!-- for column type code -->
+  <div *ngSwitchCase="'code'">
+    <p-cellEditor>
+      <ng-template pTemplate="input">
+        <input #code type="text" (change)="validateCode($event)" (keyup)="validateCode($event)"
+          [(ngModel)]="rowData[col.field]" class="form-control border"
+          [disabled]="col.isDisabled || rowData['isReserved']">
+        <span *ngIf="showError" class="error-message">Please enter allowed characters only : alphabets and
+          numbers.</span>
+        <span *ngIf="isMandatory" class="error-message"> This field can not be left blank</span>
+      </ng-template>
+      <ng-template pTemplate="output">
+        {{rowData[col.field]}}
+      </ng-template>
+    </p-cellEditor>
+  </div>
+
+  <!-- for column type noValidate - no validation required -->
+  <div *ngSwitchCase="'noValidate'">
+    <p-cellEditor>
+      <ng-template pTemplate="input">
+        <input #code type="text" required (change)="mandatoryFieldChecking($event)"
+          (keyup)="mandatoryFieldChecking($event)" [(ngModel)]="rowData[col.field]" class="form-control border"
+          [disabled]="col.isDisabled">
+        <span *ngIf="isMandatory" class="error-message"> This field can not be left blank</span>
+      </ng-template>
+      <ng-template pTemplate="output">
+        {{rowData[col.field]}}
+      </ng-template>
+    </p-cellEditor>
+  </div>
+
+  <!-- default column type - if nothing is defined -->
+  <div *ngSwitchDefault>
+    <p-cellEditor>
+      <ng-template pTemplate="input">
+        <input #text type="text" (change)="validateText($event)" (keyup)="validateText($event)"
+          (onblur)="mandatoryFieldChecking($event)" required [(ngModel)]="rowData[col.field]"
+          class="form-control border" [disabled]="col.isDisabled">
+        <span *ngIf="showError" class="error-message">Allowed characters - A-Z, a-z, 0-9, -, _</span>
+        <span *ngIf="isMandatory" class="error-message"> This field can not be left blank</span>
+      </ng-template>
+      <ng-template pTemplate="output">
+        {{rowData[col.field]}}
+      </ng-template>
+    </p-cellEditor>
+  </div>
+</div>
+
+<!-- template for adding new row based on column type -->
+<div *ngIf="_action=='add'" [ngSwitch]="col.type">
+
+  <div *ngSwitchCase="'time'">
+    <p-calendar [(ngModel)]="rowData[col.field]" (ngModelChange)="onTimeSelect($event)" [timeOnly]=" true"
+      [showSeconds]="true" [style]="{'width': '100%'}" style="width: 100%">
+    </p-calendar>
+  </div>
+
+  <div *ngSwitchCase="'colorPicker'">
+    <p-colorPicker [(ngModel)]="rowData[col.field]" [style]="{'width': '100%'}" style="width: 100%"></p-colorPicker>
+  </div>
+
+  <div *ngSwitchCase="'date'">
+    <p-calendar [(ngModel)]="rowData[col.field]" placeholder="MM/dd/yyyy" [style]="{'width': '100%'}"
+      style="width: 100%">
+    </p-calendar>
+  </div>
+
+  <div *ngSwitchCase="'list'">
+    <p-dropdown [options]="col.options" [disabled]="col.isDisabled" [(ngModel)]="rowData[col.field]"
+      [style]="{'width':'100%'}">
+    </p-dropdown>
+    <span *ngIf="isMandatory" class="error-message"> This field can not be left blank</span>
+  </div>
+
+  <div *ngSwitchCase="'number'">
+    <input pInputText placeholder="Enter {{col.header}}" [(ngModel)]="rowData[col.field]" class="form-control border"
+      (change)="validateNumber($event)" (keyup)="validateNumber($event)">
+    <span *ngIf="showError" class="error-message">Please enter numeric values only.</span>
+    <span *ngIf="isMandatory" class="error-message"> This field can not be left blank</span>
+  </div>
+
+  <div *ngSwitchCase="'float'" style="text-align: center;">
+    <input #Floatnumber pInputText placeholder="Enter {{col.header}}" [(ngModel)]="rowData[col.field]"
+      class="form-control border" (keyup)="validateFloatNumber($event)" (change)="validateFloatNumber($event)">
+    <span *ngIf="showError" class="error-message">Please enter numeric values only</span>
+    <span *ngIf="isMandatory" class="error-message"> This field can not be left blank</span>
+  </div>
+
+  <div *ngSwitchCase="'code'">
+    <input pInputText type="text" (change)="validateCode($event)" (keyup)="validateCode($event)"
+      placeholder="Enter {{col.header}}" [(ngModel)]="rowData[col.field]" class="form-control border">
+    <span *ngIf="showError" class="error-message">Please enter allowed characters only : alphabets and numbers.</span>
+    <span *ngIf="isMandatory" class="error-message"> This field can not be left blank</span>
+  </div>
+
+  <div *ngSwitchCase="'noValidate'">
+    <input pInputText type="text" (change)="mandatoryFieldChecking($event)" (keyup)="mandatoryFieldChecking($event)"
+      placeholder="Enter {{col.header}}" [(ngModel)]="rowData[col.field]" class="form-control border">
+    <span *ngIf="isMandatory" class="error-message"> This field can not be left blank</span>
+  </div>
+
+  <div *ngSwitchDefault>
+    <input pInputText type="text" (change)="validateText($event)" (keyup)="validateText($event)"
+      placeholder="Enter {{col.header}}" [(ngModel)]="rowData[col.field]" class="form-control border">
+    <span *ngIf="showError" class="error-message">Allowed characters - A-Z, a-z, 0-9, -, _ </span>
+    <span *ngIf="isMandatory" class="error-message"> This field can not be left blank</span>
+  </div>
+</div>
+
+<!-- template for excel import -->
+<div *ngIf="_action=='import'">
+  <div>
+    <input pInputText type="text" (onLoad)="validateInput($event,col.type)" (change)="validateInput($event,col.type)"
+      (keyup)="validateInput($event,col.type)" (ngModelChange)="validateInput($event,col.type)"
+      placeholder="Enter {{col.header}}" [(ngModel)]="rowData[col.field]" [disabled]="isDisabled"
+      [ngClass]="{'error-highlight':isValid==false}" />
+    <span *ngIf="showError" class="error-message">{{importErrorMsg}}</span>
+  </div>
+</div>
